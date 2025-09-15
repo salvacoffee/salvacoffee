@@ -1,0 +1,10 @@
+# See https://github.com/github/gitignore/blob/main/Node.gitignore for more templates
+# Ignore Mac system files
+.DS_Store
+# Ignore VSCode settings
+.vscode/
+# Ignore node_modules (if you add npm packages later)
+node_modules/
+# Ignore build output (if you add a build step later)
+dist/
+build/
