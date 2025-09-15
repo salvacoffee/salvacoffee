@@ -797,12 +797,12 @@ body {
     padding: 40px 30px;
     position: relative;
     z-index: 4;
-    background: #ffffff;
+    background: #000000;
     transition: all 0.3s ease;
 }
 
 .proceso-card:hover .proceso-content {
-    background: transparent;
+    background: #000000;
     color: #ffffff;
 }
 
@@ -811,7 +811,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     letter-spacing: 2px;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 25px;
     text-transform: uppercase;
     position: relative;
@@ -827,7 +827,7 @@ body {
     font-size: 14px;
     font-weight: 300;
     line-height: 1.7;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 20px;
     letter-spacing: 0.1px;
     transition: color 0.3s ease;
@@ -842,9 +842,9 @@ body {
     font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
-    color: #000000;
+    color: #ffffff;
     padding: 15px 0;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: all 0.3s ease;
