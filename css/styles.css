@@ -785,7 +785,7 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
-    filter: contrast(1.1);
+    filter: none;
 }
 
 .proceso-card:hover .proceso-image img {
