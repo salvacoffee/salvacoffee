@@ -713,6 +713,7 @@ body {
 }
 
 /* ===== SECCIÓN ARTE DE CADA TAZA ===== */
+/* Force cache update - 2024 */
 .arte-section {
     padding: 120px 0;
     background-color: white;
