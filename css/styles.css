@@ -64,7 +64,7 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
     transition: opacity 0.3s ease;
     position: relative;
@@ -1062,6 +1062,13 @@ body {
     
     .proceso-overlay {
         padding: 25px 20px;
+        justify-content: center;
+    }
+
+    .proceso-content-preview,
+    .proceso-content-full {
+        width: 100%;
+        text-align: center;
     }
     
     .proceso-content-full {
@@ -1096,6 +1103,13 @@ body {
     
     .proceso-overlay {
         padding: 20px 15px;
+        justify-content: center;
+    }
+
+    .proceso-content-preview,
+    .proceso-content-full {
+        width: 100%;
+        text-align: center;
     }
     
     .proceso-content-full {
