@@ -288,7 +288,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 /* Subtítulo pequeño arriba */
@@ -317,10 +317,6 @@ body {
 
 /* Nueva sección inferior del hero */
 .hero-bottom {
-    position: absolute;
-    bottom: 120px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -594,7 +590,7 @@ body {
 .section-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     letter-spacing: 0.1em;
     color: black;
     margin-bottom: 30px;
@@ -603,7 +599,7 @@ body {
 .section-title-centered {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     letter-spacing: 0.1em;
     color: black;
     text-align: center;
