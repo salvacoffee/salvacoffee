@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new HeaderScroll();
     new SmoothScroll();
     new MobileMenu();
+    new ProductVideoController(); // Agregar controlador de videos
     
     // Manejo del hover en proceso items
     initProcesoHover();
@@ -207,3 +208,46 @@ function preloadImages() {
 
 // Ejecutar preload cuando la página cargue
 window.addEventListener('load', preloadImages);
+
+// Video intersection observer para productos
+class ProductVideoController {
+    constructor() {
+        this.videos = document.querySelectorAll('.producto-video');
+        this.playedVideos = new Set(); // Para rastrear videos ya reproducidos
+        this.init();
+    }
+
+    init() {
+        if (this.videos.length === 0) return;
+
+        // Configurar Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Video debe estar 50% visible
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                const videoId = video.querySelector('source').src;
+
+                if (entry.isIntersecting && !this.playedVideos.has(videoId)) {
+                    // Reproducir video una sola vez
+                    video.play().catch(e => console.log('Error playing video:', e));
+                    this.playedVideos.add(videoId);
+                    
+                    // Configurar para que se quede al final cuando termine
+                    video.addEventListener('ended', () => {
+                        video.currentTime = video.duration;
+                    }, { once: true });
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos los videos
+        this.videos.forEach(video => {
+            this.observer.observe(video);
+        });
+    }
+}
