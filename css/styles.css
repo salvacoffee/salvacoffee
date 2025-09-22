@@ -292,16 +292,12 @@ body {
     margin-bottom: 80px;
 }
 
-/* Subtítulo pequeño arriba */
 .hero-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: clamp(14px, 1.5vw, 18px);
-    letter-spacing: 0.8em;
-    line-height: 1;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
     margin-bottom: 40px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Título principal grande (logotext) */
@@ -1171,6 +1167,8 @@ body {
     text-align: center;
     border: 1px solid black;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .producto-card:hover {
@@ -1178,8 +1176,23 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.producto-card:hover .producto-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.producto-card:hover .producto-content {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .producto-content {
     padding: 30px 20px;
+    transition: opacity 0.3s ease;
 }
 
 .producto-title {
@@ -1276,10 +1289,21 @@ body {
     object-fit: cover;
 }
 
-.producto-image img, .producto-image video {
-    width: 100%;
+.producto-image {
+    position: relative;
+    overflow: hidden;
     height: 300px;
+    transition: all 0.3s ease;
+}
+
+.producto-image img, .producto-image video {
+    width: 120%;
+    height: 120%;
     object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* ===== RESPONSIVE DESIGN PARA NUEVAS SECCIONES ===== */
