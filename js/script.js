@@ -176,49 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
     new MobileMenu();
     new ProductVideoController(); // Agregar controlador de videos
     
-    // Manejo del hover en proceso items
-    initProcesoHover();
+
 });
 
 // Función para manejar el cambio de texto en proceso items
-function initProcesoHover() {
-    const procesoItems = document.querySelectorAll('.proceso-item');
-    
-    procesoItems.forEach(item => {
-        const descripcion = item.querySelector('.proceso-descripcion');
-        const shortText = item.dataset.short;
-        const longText = item.dataset.long;
-        
-        // Set initial text
-        descripcion.textContent = shortText;
-        
-        // Mouse enter - show long text
-        item.addEventListener('mouseenter', () => {
-            descripcion.textContent = longText;
-        });
-        
-        // Mouse leave - show short text
-        item.addEventListener('mouseleave', () => {
-            descripcion.textContent = shortText;
-        });
-    });
-}
 
-// Preload de imágenes para mejor performance del carrusel
-function preloadImages() {
-    const imageUrls = [
-        'assets/hero.png',
-        'assets/hero1.png'
-    ];
-    
-    imageUrls.forEach(url => {
-        const img = new Image();
-        img.src = url;
-    });
-}
-
-// Ejecutar preload cuando la página cargue
-window.addEventListener('load', preloadImages);
 
 // Video intersection observer para productos
 class ProductVideoController {
