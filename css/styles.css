@@ -121,6 +121,35 @@ body {
     display: none;
     cursor: pointer;
     z-index: 1001;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.hamburger-menu:focus {
+    outline: none;
+}
+
+.hamburger-menu:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Utilidad para contenido solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 1px, 1px);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hamburger-icon {

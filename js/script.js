@@ -124,13 +124,22 @@ class MobileMenu {
             });
         }
         
+        // Estado ARIA inicial
+        if (this.hamburger) this.hamburger.setAttribute('aria-expanded', 'false');
+        if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');
+        
         this.handleResize();
         window.addEventListener('resize', () => this.handleResize());
     }
     
     toggleMenu() {
+        const isNowActive = !this.mobileMenu.classList.contains('active');
         this.hamburger.classList.toggle('active');
         this.mobileMenu.classList.toggle('active');
+        
+        // Actualizar ARIA
+        this.hamburger.setAttribute('aria-expanded', String(isNowActive));
+        this.mobileMenu.setAttribute('aria-hidden', String(!isNowActive));
         
         // Prevenir scroll del body cuando el menú está abierto
         if (this.mobileMenu.classList.contains('active')) {
@@ -143,6 +152,8 @@ class MobileMenu {
     closeMenu() {
         this.hamburger.classList.remove('active');
         this.mobileMenu.classList.remove('active');
+        this.hamburger.setAttribute('aria-expanded', 'false');
+        this.mobileMenu.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
 
