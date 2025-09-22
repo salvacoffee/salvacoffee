@@ -223,6 +223,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-color: black; /* Fondo negro para evitar flash blanco */
 }
 
 /* Carrusel de fondo */
@@ -263,7 +264,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
 
@@ -593,8 +594,8 @@ body {
 
 .section-title {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     letter-spacing: 0.1em;
     color: black;
     margin-bottom: 30px;
@@ -602,8 +603,8 @@ body {
 
 .section-title-centered {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     letter-spacing: 0.1em;
     color: black;
     text-align: center;
