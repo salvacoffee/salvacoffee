@@ -281,32 +281,27 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
-/* Contenido superior (subtítulo y logotext) */
-.hero-top {
+/* Logo pequeño arriba */
+.hero-logo-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 80px;
 }
 
-/* Subtítulo pequeño arriba */
-.hero-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: clamp(14px, 1.5vw, 18px);
-    letter-spacing: 0.8em;
-    line-height: 1;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
+.hero-logo-center {
+    max-width: 60px;
+    height: auto;
+    display: block;
 }
 
-/* Título principal grande (logotext) */
-.hero-main-title {
-    margin-bottom: 0;
+/* Logo texto principal */
+.hero-title-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-logotext {
@@ -314,6 +309,33 @@ body {
     width: 100%;
     height: auto;
     filter: brightness(0) invert(1);
+}
+
+/* Descripción */
+.hero-description-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+}
+
+.hero-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.8px;
+    margin: 0;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Botón y ubicación */
+.hero-actions-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 /* Nueva sección inferior del hero */
