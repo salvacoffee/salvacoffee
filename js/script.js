@@ -175,6 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new SmoothScroll();
     new MobileMenu();
     new ProductVideoController(); // Agregar controlador de videos
+    new ArteScrollPin(); // Scroll pinning para 'El arte de cada taza'
+    new ProcesoScrollActive(); // Activación por hover/scroll para 'El Proceso'
     
 
 });
@@ -223,4 +225,171 @@ class ProductVideoController {
             this.observer.observe(video);
         });
     }
+}
+
+class ArteScrollPin {
+  constructor() {
+    this.section = document.querySelector('.arte-section');
+    this.cards = Array.from(document.querySelectorAll('.procesos-grid .proceso-card'));
+    this.lastState = -1;
+    this.init();
+  }
+  init() {
+    if (!this.section || this.cards.length === 0) return;
+    this.rafId = null;
+    window.addEventListener('scroll', this.onScroll.bind(this), { passive: true });
+    window.addEventListener('resize', this.onScroll.bind(this), { passive: true });
+    this.onScroll();
+  }
+  handle(entries) {
+    const entry = entries[0];
+    const ratio = entry.intersectionRatio || 0;
+    this.applyState(this.mapState(ratio));
+  }
+  onScroll() {
+    if (this.rafId) return;
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = null;
+      this.update();
+    });
+  }
+  update() {
+    const vh = window.innerHeight;
+    const yCenter = window.scrollY + vh / 2;
+    const sTop = this.section.offsetTop;
+    const sHeight = this.section.offsetHeight;
+    const sBottom = sTop + sHeight;
+    if (yCenter < sTop || yCenter > sBottom) {
+      this.applyState(-1);
+      return;
+    }
+    const p = Math.max(0, Math.min(1, (yCenter - sTop) / sHeight));
+    this.applyState(this.mapState(p));
+  }
+  mapState(p) {
+    const n = this.cards.length;
+    if (n <= 0) return -1;
+    return Math.min(n - 1, Math.max(0, Math.floor(p * n)));
+  }
+  applyState(state) {
+    if (state === this.lastState) return;
+    this.lastState = state;
+    this.cards.forEach((card, idx) => {
+      const active = state >= 0 && idx === state;
+      card.classList.toggle('is-active', active);
+      card.classList.toggle('is-inactive', state >= 0 && idx !== state);
+    });
+  }
+}
+
+class ProcesoScrollActive {
+  constructor() {
+    this.section = document.querySelector('.el-proceso-section');
+    this.gallery = document.querySelector('.proceso-gallery');
+    this.steps = Array.from(document.querySelectorAll('.proceso-gallery .proceso-step'));
+    this.lastState = -1;
+    this.rafId = null;
+    this.scrollAttached = false;
+    this.hoverAttached = false;
+    this.boundOnScroll = this.onScroll.bind(this);
+    this.boundOnResize = this.configure.bind(this);
+    this.boundMouseEnters = [];
+    this.boundMouseLeave = null;
+    this.init();
+  }
+  init() {
+    if (!this.section || this.steps.length === 0) return;
+    window.addEventListener('resize', this.boundOnResize, { passive: true });
+    this.configure();
+  }
+  configure() {
+    const isMobile = window.innerWidth <= 768; // pantallas pequeñas: activación por scroll
+    if (isMobile) {
+      this.detachHover();
+      this.attachScroll();
+      this.onScroll();
+    } else {
+      this.detachScroll();
+      this.attachHover();
+      this.setActive(0); // Desktop: primera tarjeta activa por defecto
+    }
+  }
+  attachScroll() {
+    if (this.scrollAttached) return;
+    window.addEventListener('scroll', this.boundOnScroll, { passive: true });
+    this.scrollAttached = true;
+  }
+  detachScroll() {
+    if (!this.scrollAttached) return;
+    window.removeEventListener('scroll', this.boundOnScroll);
+    this.scrollAttached = false;
+  }
+  attachHover() {
+    if (this.hoverAttached) return;
+    this.boundMouseEnters = this.steps.map((step, idx) => {
+      const handler = () => this.setActive(idx);
+      step.addEventListener('mouseenter', handler, { passive: true });
+      return handler;
+    });
+    this.boundMouseLeave = () => this.setActive(0);
+    if (this.gallery) {
+      this.gallery.addEventListener('mouseleave', this.boundMouseLeave, { passive: true });
+    }
+    this.hoverAttached = true;
+  }
+  detachHover() {
+    if (!this.hoverAttached) return;
+    this.steps.forEach((step, idx) => {
+      const handler = this.boundMouseEnters[idx];
+      if (handler) step.removeEventListener('mouseenter', handler);
+    });
+    this.boundMouseEnters = [];
+    if (this.gallery && this.boundMouseLeave) {
+      this.gallery.removeEventListener('mouseleave', this.boundMouseLeave);
+      this.boundMouseLeave = null;
+    }
+    this.hoverAttached = false;
+  }
+  onScroll() {
+    if (this.rafId) return;
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = null;
+      this.update();
+    });
+  }
+  update() {
+    const vh = window.innerHeight;
+    const yCenter = window.scrollY + vh / 2;
+    const sTop = this.section.offsetTop;
+    const sHeight = this.section.offsetHeight;
+    const sBottom = sTop + sHeight;
+    if (yCenter < sTop || yCenter > sBottom) {
+      this.applyState(-1);
+      return;
+    }
+    const p = Math.max(0, Math.min(1, (yCenter - sTop) / sHeight));
+    this.applyState(this.mapState(p));
+  }
+  mapState(p) {
+    const n = this.steps.length;
+    if (n <= 0) return -1;
+    return Math.min(n - 1, Math.max(0, Math.floor(p * n)));
+  }
+  setActive(index) {
+    const n = this.steps.length;
+    if (index < 0 || index >= n) {
+      this.applyState(-1);
+    } else {
+      this.applyState(index);
+    }
+  }
+  applyState(state) {
+    if (state === this.lastState) return;
+    this.lastState = state;
+    this.steps.forEach((step, idx) => {
+      const active = state >= 0 && idx === state;
+      step.classList.toggle('is-active', active);
+      step.classList.toggle('is-inactive', state >= 0 && idx !== state);
+    });
+  }
 }

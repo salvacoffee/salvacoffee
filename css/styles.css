@@ -766,16 +766,22 @@ body {
 }
 
 /* ===== SECCIÓN ARTE DE CADA TAZA ===== */
-/* Force cache update - 2024 */
-.arte-section {
-    padding: 120px 0;
-    background-color: white;
+.arte-pin-wrapper { /* eliminado */ }
+.arte-pin { /* eliminado */ }
+@media (max-width: 768px) {
+  .arte-pin-wrapper { /* eliminado */ }
+  .arte-pin { /* eliminado */ }
 }
 
 .arte-header {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 80px;
+}
+
+/* Espaciado de sección en desktop */
+.arte-section {
+    padding: 160px 0;
 }
 
 .arte-description {
@@ -825,6 +831,10 @@ body {
 .proceso-card:hover::before {
     opacity: 1;
 }
+.proceso-card:hover .proceso-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(1.1) brightness(1.1);
+}
 
 .proceso-image {
     position: relative;
@@ -842,10 +852,13 @@ body {
     filter: grayscale(100%) contrast(1.1);
 }
 
-.proceso-card:hover .proceso-image img {
-    transform: scale(1.05);
-    filter: grayscale(0%) contrast(1.1) brightness(1.1);
-}
+.proceso-card.is-inactive { }
+.proceso-card.is-active::before { opacity: 1; }
+.proceso-card.is-active .proceso-image img { transform: scale(1.05); filter: grayscale(0%) contrast(1.1) brightness(1.1); }
+.proceso-card.is-active .proceso-content { background: transparent; color: #ffffff; }
+.proceso-card.is-active .proceso-title { color: #ffffff; }
+.proceso-card.is-active .proceso-description { color: rgba(255, 255, 255, 0.9); }
+.proceso-card.is-active .proceso-resultado { color: #ffffff; border-top-color: rgba(255, 255, 255, 0.3); }
 
 .proceso-content {
     padding: 40px 30px;
@@ -1033,6 +1046,20 @@ body {
     transform: translateY(0);
 }
 
+/* Estado activo por JS equivalente al hover (desktop) */
+.proceso-step.is-active { flex: 2; }
+.proceso-step.is-active .proceso-image-container img { transform: scale(1.05); filter: grayscale(0%) contrast(1.1) brightness(1.1); }
+.proceso-step.is-active .proceso-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.3) 70%,
+        transparent 100%
+    );
+}
+.proceso-step.is-active .proceso-content-preview { opacity: 0; transform: translateY(-15px); }
+.proceso-step.is-active .proceso-content-full { opacity: 1; transform: translateY(0); }
+
 .proceso-step-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -1112,6 +1139,11 @@ body {
         flex: none;
         height: 280px;
     }
+    /* Estado activo por JS equivalente al hover (<=768px) */
+    .proceso-step.is-active {
+        flex: none;
+        height: 280px;
+    }
     
     .proceso-overlay {
         padding: 25px 20px;
@@ -1151,6 +1183,10 @@ body {
     }
     
     .proceso-step:hover {
+        height: 250px;
+    }
+    /* Estado activo por JS equivalente al hover (<=480px) */
+    .proceso-step.is-active {
         height: 250px;
     }
     
