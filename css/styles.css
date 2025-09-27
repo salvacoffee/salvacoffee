@@ -1636,11 +1636,29 @@ body {
 .cta-final-section {
     padding: 80px 0;
     background: #0a0a0a;
+    background-image: url('../assets/fondoCompromiso.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     color: white;
     text-align: center;
 }
 
+.cta-final-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
 .cta-final-content {
+    position: relative;
+    z-index: 2;
     max-width: 800px;
     margin: 0 auto;
 }
