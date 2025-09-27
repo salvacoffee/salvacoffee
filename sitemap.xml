@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Main page -->
+  <url>
+    <loc>https://salva-coffee.com/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Images for main page -->
+    <image:image>
+      <image:loc>https://salva-coffee.com/assets/productoTradicional.webp</image:loc>
+      <image:title>Café Tradicional SALVA</image:title>
+      <image:caption>Café artesanal 100% arábica proceso tradicional de Amazonas, Perú</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://salva-coffee.com/assets/productoNatural.webp</image:loc>
+      <image:title>Café Natural SALVA</image:title>
+      <image:caption>Café artesanal 100% arábica proceso natural de Amazonas, Perú</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://salva-coffee.com/assets/productoHoney.webp</image:loc>
+      <image:title>Café Honey SALVA</image:title>
+      <image:caption>Café artesanal 100% arábica proceso honey de Amazonas, Perú</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://salva-coffee.com/assets/logo/logo1.svg</image:loc>
+      <image:title>SALVA Coffee Logo</image:title>
+      <image:caption>Logo oficial de SALVA Coffee - Café artesanal de Amazonas</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://salva-coffee.com/assets/herencia.webp</image:loc>
+      <image:title>Herencia Familiar SALVA Coffee</image:title>
+      <image:caption>Familia cafetalera de Providencia, Luya - Amazonas</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://salva-coffee.com/assets/compromiso.webp</image:loc>
+      <image:title>Compromiso SALVA Coffee</image:title>
+      <image:caption>Compromiso con la calidad y tradición cafetalera</image:caption>
+    </image:image>
+    
+    <!-- Videos for main page -->
+    <video:video>
+      <video:thumbnail_loc>https://salva-coffee.com/assets/productoTradicional.webp</video:thumbnail_loc>
+      <video:title>Café Tradicional SALVA - Proceso Artesanal</video:title>
+      <video:description>Proceso tradicional de café artesanal 100% arábica de Amazonas, Perú</video:description>
+      <video:content_loc>https://salva-coffee.com/assets/video/tradicional.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    
+    <video:video>
+      <video:thumbnail_loc>https://salva-coffee.com/assets/productoNatural.webp</video:thumbnail_loc>
+      <video:title>Café Natural SALVA - Proceso Artesanal</video:title>
+      <video:description>Proceso natural de café artesanal 100% arábica de Amazonas, Perú</video:description>
+      <video:content_loc>https://salva-coffee.com/assets/video/natural.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    
+    <video:video>
+      <video:thumbnail_loc>https://salva-coffee.com/assets/productoHoney.webp</video:thumbnail_loc>
+      <video:title>Café Honey SALVA - Proceso Artesanal</video:title>
+      <video:description>Proceso honey de café artesanal 100% arábica de Amazonas, Perú</video:description>
+      <video:content_loc>https://salva-coffee.com/assets/video/honey.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  
+  <!-- CSS files -->
+  <url>
+    <loc>https://salva-coffee.com/css/styles.css</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- JavaScript files -->
+  <url>
+    <loc>https://salva-coffee.com/js/script.js</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Important assets -->
+  <url>
+    <loc>https://salva-coffee.com/assets/logo/logo1.svg</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Product images -->
+  <url>
+    <loc>https://salva-coffee.com/assets/productoTradicional.webp</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://salva-coffee.com/assets/productoNatural.webp</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://salva-coffee.com/assets/productoHoney.webp</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Process images -->
+  <url>
+    <loc>https://salva-coffee.com/assets/herencia.webp</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://salva-coffee.com/assets/compromiso.webp</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
