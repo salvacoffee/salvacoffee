@@ -311,6 +311,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    margin-top: 120px;
 }
 
 /* Logo pequeño arriba */
@@ -334,7 +335,7 @@ body {
 }
 
 .main-logotext {
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     height: auto;
     filter: brightness(0) invert(1);
@@ -432,7 +433,7 @@ body {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 3px;
-    padding-top: 20px;
+    padding-top: 80px;
     opacity: 0.8;
     color: white;
     text-align: center;
@@ -1421,8 +1422,8 @@ body {
 }
 
 .producto-image img, .producto-image video {
-    width: 120%;
-    height: 120%;
+    width: 140%;
+    height: 140%;
     object-fit: cover;
     position: absolute;
     top: 50%;
@@ -1714,26 +1715,30 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.footer .container {
     max-width: 1400px;
-    margin: 0 auto;
     padding: 0 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 60px;
 }
 
 /* Lado izquierdo: Contacto y redes sociales */
 .footer-left {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     align-items: center;
     gap: 40px;
 }
 
 .footer-contact {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    gap: 15px;
 }
 
 .footer-label {
@@ -1741,7 +1746,7 @@ body {
     font-weight: 500;
     font-size: 12px;
     letter-spacing: 2px;
-    color: #999999;
+    color: #ccc;
     text-transform: uppercase;
 }
 
@@ -1749,88 +1754,66 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-phone:hover {
-    color: #cccccc;
+    color: #ccc;
+}
+
+.phone-separator {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #666;
 }
 
 .footer-social {
     display: flex;
-    align-items: center;
     gap: 20px;
+    align-items: center;
 }
 
 .social-link {
-    color: #cccccc;
+    color: white;
     transition: color 0.3s ease;
-    text-decoration: none;
 }
 
 .social-link:hover {
-    color: #ffffff;
+    color: #cccccc;
 }
 
 .social-icon {
-    width: 18px;
-    height: 18px;
-    color: #ffffff;
+    width: 20px;
+    height: 20px;
 }
 
-/* Lado derecho: Enlaces y copyright */
 .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.footer-nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.footer-link {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    color: #cccccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #ffffff;
+    justify-self: end;
 }
 
 .footer-copyright {
     font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
     font-weight: 300;
-    font-size: 12px;
-    color: #999999;
+    color: #888;
     letter-spacing: 0.5px;
 }
 
 /* Responsive - Footer */
 @media (max-width: 1024px) {
+    .footer .container {
+        padding: 0 30px;
+    }
+    
     .footer-content {
-        padding: 0 20px;
-        gap: 30px;
+        gap: 40px;
     }
     
     .footer-left {
-        gap: 25px;
-    }
-    
-    .footer-right {
-        gap: 25px;
-    }
-    
-    .footer-nav {
-        gap: 20px;
+        gap: 30px;
     }
 }
 
@@ -1839,19 +1822,29 @@ body {
         padding: 30px 0;
     }
     
+    .footer .container {
+        padding: 0 20px;
+    }
+    
     .footer-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 25px;
         text-align: center;
     }
     
     .footer-left {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 20px;
+        justify-items: center;
     }
     
     .footer-contact {
-        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .phone-separator {
+        display: none;
     }
     
     .footer-social {
@@ -1859,16 +1852,7 @@ body {
     }
     
     .footer-right {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .footer-nav {
-        gap: 15px;
-    }
-    
-    .footer-link {
-        font-size: 12px;
+        justify-self: center;
     }
     
     .footer-copyright {

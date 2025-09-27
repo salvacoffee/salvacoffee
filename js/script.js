@@ -232,19 +232,69 @@ class ArteScrollPin {
     this.section = document.querySelector('.arte-section');
     this.cards = Array.from(document.querySelectorAll('.procesos-grid .proceso-card'));
     this.lastState = -1;
+    this.isHovering = false; // Nueva variable para controlar el estado de hover
+    this.scrollActiveIndex = -1; // Índice activo por scroll
+    this.hoverActiveIndex = -1; // Índice activo por hover
     this.init();
   }
   init() {
     if (!this.section || this.cards.length === 0) return;
     this.rafId = null;
     window.addEventListener('scroll', this.onScroll.bind(this), { passive: true });
-    window.addEventListener('resize', this.onScroll.bind(this), { passive: true });
+    window.addEventListener('resize', () => {
+      this.onScroll();
+      this.setupHoverEvents(); // Reconfigurar eventos en resize
+    }, { passive: true });
+    
+    // Añadir eventos de hover
+    this.setupHoverEvents();
     this.onScroll();
   }
+  setupHoverEvents() {
+    // Limpiar eventos anteriores
+    this.cards.forEach(card => {
+      card.removeEventListener('mouseenter', card._hoverEnter);
+      card.removeEventListener('mouseleave', card._hoverLeave);
+    });
+    
+    // Solo en desktop (mayor a 768px)
+    if (window.innerWidth <= 768) return;
+    
+    this.cards.forEach((card, index) => {
+      // Crear funciones bound para poder removerlas después
+      card._hoverEnter = () => {
+        console.log('Hover enter on card', index);
+        this.isHovering = true;
+        this.hoverActiveIndex = index;
+        this.updateActiveState();
+      };
+      
+      card._hoverLeave = () => {
+        console.log('Hover leave on card', index);
+        this.isHovering = false;
+        this.hoverActiveIndex = -1;
+        this.updateActiveState();
+      };
+      
+      card.addEventListener('mouseenter', card._hoverEnter);
+      card.addEventListener('mouseleave', card._hoverLeave);
+    });
+  }
+  
+  updateActiveState() {
+    // Prioridad: hover > scroll
+    const activeIndex = this.isHovering ? this.hoverActiveIndex : this.scrollActiveIndex;
+    console.log('Update active state:', { isHovering: this.isHovering, hoverIndex: this.hoverActiveIndex, scrollIndex: this.scrollActiveIndex, activeIndex });
+    this.applyState(activeIndex);
+  }
+  
   handle(entries) {
     const entry = entries[0];
     const ratio = entry.intersectionRatio || 0;
-    this.applyState(this.mapState(ratio));
+    this.scrollActiveIndex = this.mapState(ratio);
+    if (!this.isHovering) {
+      this.applyState(this.scrollActiveIndex);
+    }
   }
   onScroll() {
     if (this.rafId) return;
@@ -260,11 +310,17 @@ class ArteScrollPin {
     const sHeight = this.section.offsetHeight;
     const sBottom = sTop + sHeight;
     if (yCenter < sTop || yCenter > sBottom) {
-      this.applyState(-1);
+      this.scrollActiveIndex = -1;
+      if (!this.isHovering) {
+        this.applyState(-1);
+      }
       return;
     }
     const p = Math.max(0, Math.min(1, (yCenter - sTop) / sHeight));
-    this.applyState(this.mapState(p));
+    this.scrollActiveIndex = this.mapState(p);
+    if (!this.isHovering) {
+      this.applyState(this.scrollActiveIndex);
+    }
   }
   mapState(p) {
     const n = this.cards.length;
