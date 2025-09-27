@@ -1,0 +1,31 @@
+{
+  "name": "salva-coffee",
+  "version": "1.0.0",
+  "description": "Sitio web oficial de SALVA Coffee - Café 100% arábica artesanal de Amazonas",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static site'",
+    "start": "npx serve .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "coffee",
+    "cafe",
+    "arabica",
+    "artesanal",
+    "amazonas",
+    "peru",
+    "specialty-coffee"
+  ],
+  "author": "SALVA Coffee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/salvacoffee/website.git"
+  },
+  "homepage": "https://salvacoffee.com",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
