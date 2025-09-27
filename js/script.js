@@ -188,6 +188,9 @@ document.addEventListener('DOMContentLoaded', () => {
 class ProductVideoController {
     constructor() {
         this.videos = document.querySelectorAll('.producto-video');
+        this.normalVideos = document.querySelectorAll('.producto-video-normal');
+        this.hoverVideos = document.querySelectorAll('.producto-video-hover');
+        this.productCards = document.querySelectorAll('.producto-card');
         this.playedVideos = new Set(); // Para rastrear videos ya reproducidos
         this.init();
     }
@@ -195,7 +198,7 @@ class ProductVideoController {
     init() {
         if (this.videos.length === 0) return;
 
-        // Configurar Intersection Observer
+        // Configurar Intersection Observer para videos normales
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -220,9 +223,39 @@ class ProductVideoController {
             });
         }, observerOptions);
 
-        // Observar todos los videos
-        this.videos.forEach(video => {
+        // Observar todos los videos normales
+        this.normalVideos.forEach(video => {
             this.observer.observe(video);
+        });
+
+        // Configurar eventos de hover para cambio de videos
+        this.setupHoverEvents();
+    }
+
+    setupHoverEvents() {
+        this.productCards.forEach((card, index) => {
+            const normalVideo = card.querySelector('.producto-video-normal');
+            const hoverVideo = card.querySelector('.producto-video-hover');
+
+            if (normalVideo && hoverVideo) {
+                card.addEventListener('mouseenter', () => {
+                    // Pausar video normal
+                    normalVideo.pause();
+                    
+                    // Reproducir video hover en loop
+                    hoverVideo.currentTime = 0;
+                    hoverVideo.loop = true;
+                    hoverVideo.play().catch(e => console.log('Error playing hover video:', e));
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    // Pausar video hover
+                    hoverVideo.pause();
+                    hoverVideo.currentTime = 0;
+                    
+                    // El video normal ya está pausado como debe ser
+                });
+            }
         });
     }
 }

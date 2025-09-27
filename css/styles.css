@@ -1431,6 +1431,22 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* Estilos para el sistema de videos hover */
+.producto-video-hover {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 128% !important;
+    height: 128% !important;
+}
+
+.producto-card:hover .producto-video-normal {
+    opacity: 0;
+}
+
+.producto-card:hover .producto-video-hover {
+    opacity: 1;
+}
+
 /* ===== RESPONSIVE DESIGN PARA NUEVAS SECCIONES ===== */
 
 @media (max-width: 1024px) {
