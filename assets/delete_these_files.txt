@@ -1,0 +1,6 @@
+hero.webp
+hero1.webp
+Historia2.webp
+logo/logo.svg
+logo/logotext.svg
+logo/logotext1.svg

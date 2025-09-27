@@ -734,7 +734,7 @@ body {
 .compromiso-section {
     padding: 100px 0;
     background-color: black;
-    background-image: url('../assets/fondoCompromiso.png');
+    background-image: url('../assets/fondoCompromiso.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1636,7 +1636,7 @@ body {
 .cta-final-section {
     padding: 80px 0;
     background: #0a0a0a;
-    background-image: url('../assets/fondoCompromiso.png');
+    background-image: url('../assets/fondoCompromiso.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
