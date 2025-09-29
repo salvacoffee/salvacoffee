@@ -1,6 +1,6 @@
 # SALVA Coffee Website
 
-Sitio web oficial de SALVA Coffee - Café 100% arábica artesanal de Amazonas, Perú.
+Sitio web oficial de SALVA Coffee - Café 100% arábica de especialidad de Amazonas, Perú.
 
 ## Descripción
 

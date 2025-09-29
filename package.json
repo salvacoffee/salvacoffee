@@ -1,7 +1,7 @@
 {
   "name": "salva-coffee",
   "version": "1.0.0",
-  "description": "Sitio web oficial de SALVA Coffee - Café 100% arábica artesanal de Amazonas",
+  "description": "Sitio web oficial de SALVA Coffee - Café 100% arábica de especialidad de Amazonas",
   "main": "index.html",
   "scripts": {
     "dev": "npx serve .",
@@ -13,7 +13,7 @@
     "coffee",
     "cafe",
     "arabica",
-    "artesanal",
+    "especialidad",
     "amazonas",
     "peru",
     "specialty-coffee"

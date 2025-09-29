@@ -12,27 +12,27 @@
     
     <!-- Images for main page -->
     <image:image>
-      <image:loc>https://salva-coffee.com/assets/productoTradicional.webp</image:loc>
-      <image:title>Café Tradicional SALVA</image:title>
-      <image:caption>Café artesanal 100% arábica proceso tradicional de Amazonas, Perú</image:caption>
+      <image:loc>https://salva-coffee.com/assets/productoLavado.webp</image:loc>
+      <image:title>Café Lavado SALVA</image:title>
+        <image:caption>Café natural de especialidad 100% arábica proceso lavado de Amazonas, Perú</image:caption>
     </image:image>
     
     <image:image>
       <image:loc>https://salva-coffee.com/assets/productoNatural.webp</image:loc>
       <image:title>Café Natural SALVA</image:title>
-      <image:caption>Café artesanal 100% arábica proceso natural de Amazonas, Perú</image:caption>
+      <image:caption>Café natural de especialidad 100% arábica proceso natural de Amazonas, Perú</image:caption>
     </image:image>
     
     <image:image>
       <image:loc>https://salva-coffee.com/assets/productoHoney.webp</image:loc>
       <image:title>Café Honey SALVA</image:title>
-      <image:caption>Café artesanal 100% arábica proceso honey de Amazonas, Perú</image:caption>
+      <image:caption>Café natural de especialidad 100% arábica proceso honey de Amazonas, Perú</image:caption>
     </image:image>
     
     <image:image>
       <image:loc>https://salva-coffee.com/assets/logo/logo1.svg</image:loc>
       <image:title>SALVA Coffee Logo</image:title>
-      <image:caption>Logo oficial de SALVA Coffee - Café artesanal de Amazonas</image:caption>
+      <image:caption>Logo oficial de SALVA Coffee - Café natural de especialidad de Amazonas</image:caption>
     </image:image>
     
     <image:image>
@@ -49,18 +49,18 @@
     
     <!-- Videos for main page -->
     <video:video>
-      <video:thumbnail_loc>https://salva-coffee.com/assets/productoTradicional.webp</video:thumbnail_loc>
-      <video:title>Café Tradicional SALVA - Proceso Artesanal</video:title>
-      <video:description>Proceso tradicional de café artesanal 100% arábica de Amazonas, Perú</video:description>
-      <video:content_loc>https://salva-coffee.com/assets/video/tradicional.mp4</video:content_loc>
+      <video:thumbnail_loc>https://salva-coffee.com/assets/productoLavado.webp</video:thumbnail_loc>
+      <video:title>Café Lavado SALVA - Proceso de Especialidad</video:title>
+        <video:description>Proceso lavado de café natural de especialidad 100% arábica de Amazonas, Perú</video:description>
+      <video:content_loc>https://salva-coffee.com/assets/video/lavado.mp4</video:content_loc>
       <video:duration>30</video:duration>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
     
     <video:video>
       <video:thumbnail_loc>https://salva-coffee.com/assets/productoNatural.webp</video:thumbnail_loc>
-      <video:title>Café Natural SALVA - Proceso Artesanal</video:title>
-      <video:description>Proceso natural de café artesanal 100% arábica de Amazonas, Perú</video:description>
+      <video:title>Café Natural SALVA - Proceso de Especialidad</video:title>
+      <video:description>Proceso natural de café natural de especialidad 100% arábica de Amazonas, Perú</video:description>
       <video:content_loc>https://salva-coffee.com/assets/video/natural.mp4</video:content_loc>
       <video:duration>30</video:duration>
       <video:family_friendly>yes</video:family_friendly>
@@ -68,8 +68,8 @@
     
     <video:video>
       <video:thumbnail_loc>https://salva-coffee.com/assets/productoHoney.webp</video:thumbnail_loc>
-      <video:title>Café Honey SALVA - Proceso Artesanal</video:title>
-      <video:description>Proceso honey de café artesanal 100% arábica de Amazonas, Perú</video:description>
+      <video:title>Café Honey SALVA - Proceso de Especialidad</video:title>
+      <video:description>Proceso honey de café natural de especialidad 100% arábica de Amazonas, Perú</video:description>
       <video:content_loc>https://salva-coffee.com/assets/video/honey.mp4</video:content_loc>
       <video:duration>30</video:duration>
       <video:family_friendly>yes</video:family_friendly>
@@ -102,7 +102,7 @@
   
   <!-- Product images -->
   <url>
-    <loc>https://salva-coffee.com/assets/productoTradicional.webp</loc>
+    <loc>https://salva-coffee.com/assets/productoLavado.webp</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
