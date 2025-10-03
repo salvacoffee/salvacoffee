@@ -239,8 +239,8 @@ class ProductVideoController {
 
             if (normalVideo && hoverVideo) {
                 card.addEventListener('mouseenter', () => {
-                    // Pausar video normal
-                    normalVideo.pause();
+                    // No pausar el video normal, solo ocultar visualmente
+                    // El video normal sigue reproduciéndose por debajo
                     
                     // Reproducir video hover en loop
                     hoverVideo.currentTime = 0;
@@ -253,7 +253,8 @@ class ProductVideoController {
                     hoverVideo.pause();
                     hoverVideo.currentTime = 0;
                     
-                    // El video normal ya está pausado como debe ser
+                    // El video normal ya está visible de nuevo automáticamente por CSS
+                    // No necesitamos hacer nada más
                 });
             }
         });
