@@ -219,442 +219,65 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-container">
-            <!-- Logo (Izquierda) -->
-            <div class="header-logo">
-                <img src="assets/logo/logo1.svg" alt="Logo" class="logo">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="assets/logo/logo1.svg" alt="SALVA Coffee Logo">
             </div>
             
-            <!-- Menú Hamburguesa (Móvil) -->
-            <button class="hamburger-menu" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false" type="button">
-                <div class="hamburger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
+            <!-- Menu hamburguesa -->
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+            </div>
             
-            <!-- Navegación (Centro) -->
-            <nav class="header-nav" aria-label="Navegación principal">
+            <!-- Navegación -->
+            <nav class="nav">
                 <ul class="nav-menu">
                     <li><a href="#inicio">INICIO</a></li>
-                    <li><a href="#herencia">HISTORIA</a></li>
+                    <li><a href="#historia">HISTORIA</a></li>
                     <li><a href="#compromiso">COMPROMISO</a></li>
-                    <li><a href="#arte">MÉTODOS</a></li>
-                    <li><a href="#el-proceso">PROCESO</a></li>
+                    <li><a href="#metodos">MÉTODOS</a></li>
+                    <li><a href="#proceso">PROCESO</a></li>
                 </ul>
             </nav>
             
-            <!-- Elemento de equilibrio (Derecha) -->
-            <div class="header-cta">
-                <button class="comprar-button" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">COMPRAR</button>
+            <!-- Iconos sociales -->
+            <div class="social-icons">
+                <a href="#" class="social-icon instagram" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon facebook" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon whatsapp" aria-label="WhatsApp">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                    </svg>
+                </a>
             </div>
-        </div>
-        
-        <!-- Menú móvil desplegable -->
-        <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
-            <nav class="mobile-nav" aria-label="Navegación móvil">
-                <ul class="mobile-nav-menu">
-                    <li><a href="#inicio">INICIO</a></li>
-                    <li><a href="#herencia">HISTORIA</a></li>
-                    <li><a href="#compromiso">COMPROMISO</a></li>
-                    <li><a href="#arte">MÉTODOS</a></li>
-                    <li><a href="#el-proceso">PROCESO</a></li>
-                    <li><button class="mobile-comprar-button" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">COMPRAR</button></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <!-- Carrusel de fondo -->
-        <div class="hero-background">
-            <div class="hero-slide active">
-                <img src="assets/heroCafe.webp" alt="Hero Coffee Background" width="1920" height="1080" fetchpriority="high" decoding="async">
-            </div>
-        </div>
-        
-        <!-- Overlay -->
-        <div class="hero-overlay"></div>
-        
-        <!-- Contenido -->
+    <section class="hero">
         <div class="hero-content">
-            <h1 class="sr-only">SALVA Coffee — El Alma de Nuestra Tierra</h1>
-            <!-- Logo pequeño arriba -->
-            <div class="hero-logo-section">
-                <img src="assets/logo/logoCenter.webp" alt="Logo Center" class="hero-logo-center" width="160" height="160">
-            </div>
-            
-            <!-- Logo texto principal -->
-            <div class="hero-title-section">
-                <img src="assets/logo/logotext2.svg" alt="Salva Coffee" class="main-logotext" width="900" height="180">
-            </div>
-            
-            <!-- Descripción -->
-            <div class="hero-description-section">
-                <p class="hero-description">Café natural de especialidad 100% arábica de Providencia, Luya - Amazonas, Perú. Tradición familiar que preserva el sabor auténtico de nuestras montañas.</p>
-            </div>
-            
-            <!-- Botón -->
-            <div class="hero-actions-section">
-                <button class="ver-mas-btn" onclick="document.getElementById('herencia').scrollIntoView({behavior: 'smooth'})">EXPLORA NUESTRO CAFÉ</button>
-                <span class="location-badge">— PROVIDENCIA, LUYA - AMAZONAS —</span>
+            <h1 class="hero-title">SALVA COFFEE</h1>
+            <p class="hero-description">
+                Descubre SALVA Coffee, nuestro café de especialidad 100% arábica de Amazonas, Perú
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Comprar</button>
+                <button class="btn btn-secondary">Ver mas</button>
             </div>
         </div>
     </section>
-
-    <!-- Sección Herencia Familiar -->
-    <section class="herencia-section" id="herencia">
-        <div class="container">
-            <div class="herencia-content">
-                <div class="herencia-text">
-                    <h3 class="section-subtitle">Más que café, una</h3>
-                    <h2 class="section-title">HERENCIA FAMILIAR</h2>
-                    <div class="text-content">
-                        <p>En nuestra finca, en Providencia, Luya – Amazonas, a más de 1,700 metros de altura, el tiempo se mide en generaciones. Somos la familia Salazar Alva, y SALVA Coffee es el reflejo de nuestra herencia, de nuestra tierra y de un oficio cultivado con paciencia.</p>
-                        
-                        <p>Nuestro nombre no solo une dos apellidos con más de dos generaciones dedicadas al café; SALVA significa guardar, cuidar y rescatar. Es la historia de un cafetal que volvió a la vida gracias al trabajo familiar.</p>
-                        
-                        <p>Cada grano es cosechado a mano y seleccionado en nuestra finca. El tueste de especialidad en pequeños lotes preserva la frescura y el sabor auténtico de nuestro café.</p>
-                    </div>
-                    <button class="cta-button-secondary" onclick="document.getElementById('el-proceso').scrollIntoView({behavior: 'smooth'})">CONOCE NUESTRO PROCESO</button>
-                </div>
-                <div class="herencia-image">
-                    <img src="assets/Historia1.webp" alt="Familia Salazar Alva en su finca de café en Providencia, Luya - Amazonas" loading="lazy" width="960" height="640">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Compromiso -->
-    <section class="compromiso-section" id="compromiso">
-        <div class="container">
-            <div class="compromiso-content">
-                <h2 class="section-title-centered">COMPROMISO SALVA</h2>
-                <p class="compromiso-description">Cada taza de SALVA Coffee es una invitación a viajar a nuestras montañas, a sentir el aroma de un oficio vivo y el sabor de un café que cuenta su propia historia.</p>
-                <div class="tradicion-badge">— TRADICIÓN CAFETALERA FAMILIAR —</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Arte de Cada Taza -->
-    <section class="arte-section" id="arte">
-        <div class="container">
-            <div class="arte-header">
-                <h3 class="section-subtitle">El arte detrás</h3>
-                <h2 class="section-title">DE CADA TAZA</h2>
-                <p class="arte-description">Cada taza de SALVA Coffee nace en las tierras altas de Providencia, fruto de procesos de especialidad que realzan el carácter único de cada grano y cuentan una historia de tradición y paciencia. Trabajamos tres métodos de procesamiento que preservan lo mejor de cada cosecha.</p>
-            </div>
-            
-            <div class="procesos-grid">
-                <!-- Proceso Lavado -->
-                <div class="proceso-card">
-                    <div class="proceso-image">
-                        <img src="assets/procesoLavado.webp" alt="Proceso Lavado de café SALVA" loading="lazy" width="960" height="640">
-                    </div>
-                    <div class="proceso-content">
-                        <h4 class="proceso-title">PROCESO LAVADO</h4>
-                        <p class="proceso-description">Fermentación controlada y lavado en agua pura de manantial. El método que realza la acidez brillante y las notas más limpias del grano.</p>
-                        <p class="proceso-resultado">Taza balanceada • Cuerpo medio • Notas cítricas y florales</p>
-                    </div>
-                </div>
-            
-            <!-- Proceso Natural -->
-            <div class="proceso-card">
-                <div class="proceso-image">
-                    <img src="assets/procesoNatural.webp" alt="Proceso Natural de café SALVA" loading="lazy" width="960" height="640">
-                </div>
-                <div class="proceso-content">
-                    <h4 class="proceso-title">PROCESO NATURAL</h4>
-                    <p class="proceso-description">Secado completo con la cereza intacta. La fruta aporta dulzor intenso y complejidad afrutada durante el proceso de deshidratación.</p>
-                    <p class="proceso-resultado">Taza dulce • Cuerpo robusto • Notas afrutadas y vinosas</p>
-                </div>
-            </div>
-            
-            <!-- Proceso Honey -->
-            <div class="proceso-card">
-                <div class="proceso-image">
-                    <img src="assets/procesoHoney.webp" alt="Proceso Honey de café SALVA" loading="lazy" width="960" height="640">
-                </div>
-                <div class="proceso-content">
-                    <h4 class="proceso-title">PROCESO HONEY</h4>
-                    <p class="proceso-description">Equilibrio perfecto: se conserva el mucílago dulce durante el secado. La "miel" del café aporta suavidad y sedosidad única.</p>
-                    <p class="proceso-resultado">Taza sedosa • Acidez moderada • Dulzura intensa y envolvente</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección El Proceso -->
-    <section class="el-proceso-section" id="el-proceso">
-        <div class="proceso-header">
-            <div class="container">
-                <h3 class="section-subtitle">El arte de la perfección</h3>
-                <h2 class="section-title-centered">EL PROCESO</h2>
-                <p class="proceso-description">De la finca a tu taza: cada etapa sucede con manos expertas y sin prisa.</p>
-            </div>
-        </div>
-        
-        <div class="proceso-gallery">
-            <div class="proceso-step">
-                <div class="proceso-image-container">
-                    <img src="assets/cosecha.webp" alt="Cosecha selectiva de café" loading="lazy">
-                    <div class="proceso-overlay">
-                        <div class="proceso-content-preview">
-                            <h4 class="proceso-step-title">COSECHA</h4>
-                            <p class="proceso-step-summary">Cosecha a mano, solo lo mejor.</p>
-                        </div>
-                        <div class="proceso-content-full">
-                            <h4 class="proceso-step-title">COSECHA</h4>
-                            <p class="proceso-step-description">Recolectamos a mano únicamente las cerezas en su punto óptimo de maduración. Este proceso selectivo garantiza la uniformidad y sienta las bases para un perfil de taza excepcional.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proceso-step">
-                <div class="proceso-image-container">
-                    <img src="assets/seleccion.webp" alt="Selección rigurosa de granos" loading="lazy">
-                    <div class="proceso-overlay">
-                        <div class="proceso-content-preview">
-                            <h4 class="proceso-step-title">SELECCIÓN</h4>
-                            <p class="proceso-step-summary">Selección manual de granos en la finca.</p>
-                        </div>
-                        <div class="proceso-content-full">
-                            <h4 class="proceso-step-title">SELECCIÓN</h4>
-                            <p class="proceso-step-description">Cada lote pasa por una selección manual y por densidad. Descartamos todo lo que no cumple nuestros estándares y separamos microlotes excepcionales.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proceso-step">
-                <div class="proceso-image-container">
-                    <img src="assets/secado.webp" alt="Procesado especializado" loading="lazy">
-                    <div class="proceso-overlay">
-                        <div class="proceso-content-preview">
-                            <h4 class="proceso-step-title">SECADO</h4>
-                            <p class="proceso-step-summary">Cerezas y granos secándose en camas elevadas al sol.</p>
-                        </div>
-                        <div class="proceso-content-full">
-                            <h4 class="proceso-step-title">SECADO</h4>
-                            <p class="proceso-step-description">El secado es una etapa crítica que adaptamos al proceso: en camas elevadas para naturales, en patios para lavados o controlando mucílago en honey.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proceso-step">
-                <div class="proceso-image-container">
-                    <img src="assets/tueste.webp" alt="Tueste de especialidad" loading="lazy">
-                    <div class="proceso-overlay">
-                        <div class="proceso-content-preview">
-                            <h4 class="proceso-step-title">TUESTE</h4>
-                            <p class="proceso-step-summary">Tueste de especialidad en pequeñas tandas en la finca.</p>
-                        </div>
-                        <div class="proceso-content-full">
-                            <h4 class="proceso-step-title">TUESTE</h4>
-                            <p class="proceso-step-description">Tostamos en pequeños lotes, ajustando cada perfil para resaltar las notas características del procesado. Un tueste que respeta y potencia el origen.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proceso-step">
-                <div class="proceso-image-container">
-                    <img src="assets/envasado.webp" alt="Envasado premium" loading="lazy">
-                    <div class="proceso-overlay">
-                        <div class="proceso-content-preview">
-                            <h4 class="proceso-step-title">ENVASADO</h4>
-                            <p class="proceso-step-summary">Sellado para conservar su esencia.</p>
-                        </div>
-                        <div class="proceso-content-full">
-                            <h4 class="proceso-step-title">ENVASADO</h4>
-                            <p class="proceso-step-description">Después del reposo y control final de calidad, sellamos cada lote en empaques que preservan aroma y frescura con trazabilidad completa.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ESPACIO EN BLANCO -->
-    <div style="height: 100px; background: white;"></div>
-
-    <!-- Sección Productos -->
-    <section class="productos-section" id="productos">
-        <div class="container">
-            <div class="productos-header">
-                <h3 class="section-subtitle">El café de nuestra familia</h3>
-                <h2 class="section-title-centered">NUESTROS PRODUCTOS</h2>
-                <p class="productos-description">En SALVA Coffee seleccionamos y tostamos cada lote para resaltar lo mejor de su proceso. Tú eliges: un perfil vibrante y fresco, uno dulce y afrutado, o el equilibrio perfecto entre ambos.</p>
-                <p class="productos-subtitle">Solo decide tu proceso favorito, el tipo de tueste y la presentación… y nosotros nos encargamos de que llegue fresco a tu puerta.</p>
-            </div>
-            
-            <!-- Producto Destacado - Edición de Lanzamiento -->
-            <div class="producto-destacado">
-                <div class="producto-card producto-card-destacado">
-                    <div class="producto-image">
-                        <video muted playsinline preload="none" class="producto-video producto-video-normal">
-                            <source src="assets/video/v0.mp4" type="video/mp4">
-                        </video>
-                        <video muted playsinline preload="none" class="producto-video producto-video-hover">
-                            <source src="assets/video/v00.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="producto-content">
-                        <span class="producto-badge">DISPONIBLE AHORA</span>
-                        <h4 class="producto-title">EDICIÓN DE LANZAMIENTO</h4>
-                        <div class="producto-details">
-                            <div class="detail-item">
-                                <span class="detail-label">PRESENTACIÓN:</span>
-                                <span class="detail-value">Molido</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">PESO:</span>
-                                <span class="detail-value">250 g</span>
-                            </div>
-                        </div>
-                        <a class="producto-btn" href="https://wa.me/51923854054?text=Hola, estoy interesado en la EDICIÓN DE LANZAMIENTO de SALVA Coffee" target="_blank" rel="noopener noreferrer">COTIZAR</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="productos-grid">
-                <!-- Producto Lavado -->
-                <div class="producto-card">
-                    <div class="producto-image">
-                        <video muted playsinline preload="none" class="producto-video producto-video-normal">
-                            <source src="assets/video/v1.mp4" type="video/mp4">
-                        </video>
-                        <video muted playsinline preload="none" class="producto-video producto-video-hover">
-                            <source src="assets/video/v11.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="producto-content">
-                        <h4 class="producto-title">LAVADO</h4>
-                        <div class="producto-details">
-                            <div class="detail-item">
-                                <span class="detail-label">PRESENTACIÓN:</span>
-                                <span class="detail-value">Grano entero o molido.</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">PESO:</span>
-                                <span class="detail-value">250 g | 500 g | 1000 g</span>
-                            </div>
-                        </div>
-                        <button class="producto-btn producto-btn-disabled">PRÓXIMAMENTE</button>
-                    </div>
-                </div>
-
-                <!-- Producto Natural -->
-                <div class="producto-card">
-                    <div class="producto-image">
-                        <video muted playsinline preload="none" class="producto-video producto-video-normal">
-                            <source src="assets/video/v2.mp4" type="video/mp4">
-                        </video>
-                        <video muted playsinline preload="none" class="producto-video producto-video-hover">
-                            <source src="assets/video/v22.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="producto-content">
-                        <h4 class="producto-title">NATURAL</h4>
-                        <div class="producto-details">
-                            <div class="detail-item">
-                                <span class="detail-label">PRESENTACIÓN:</span>
-                                <span class="detail-value">Grano entero o molido.</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">PESO:</span>
-                                <span class="detail-value">250 g | 500 g | 1000 g</span>
-                            </div>
-                        </div>
-                        <button class="producto-btn producto-btn-disabled">PRÓXIMAMENTE</button>
-                    </div>
-                </div>
-
-                <!-- Producto Honey -->
-                <div class="producto-card">
-                    <div class="producto-image">
-                        <video muted playsinline preload="none" class="producto-video producto-video-normal">
-                            <source src="assets/video/v3.mp4" type="video/mp4">
-                        </video>
-                        <video muted playsinline preload="none" class="producto-video producto-video-hover">
-                            <source src="assets/video/v33.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="producto-content">
-                        <h4 class="producto-title">HONEY</h4>
-                        <div class="producto-details">
-                            <div class="detail-item">
-                                <span class="detail-label">PRESENTACIÓN:</span>
-                                <span class="detail-value">Grano entero o molido.</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">PESO:</span>
-                                <span class="detail-value">250 g | 500 g | 1000 g</span>
-                            </div>
-                        </div>
-                        <button class="producto-btn producto-btn-disabled">PRÓXIMAMENTE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Call to Action Final -->
-    <section class="cta-final-section">
-        <div class="container">
-            <div class="cta-final-content">
-                <h2 class="cta-final-title">Descubre el sabor auténtico de las tierras altas de Amazonas.</h2>
-                <p class="cta-final-subtitle">Cada taza es una historia, cada sorbo una tradición que perdura en el tiempo.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <!-- Contenido horizontal estilo minimalista -->
-            <div class="footer-content">
-                <!-- Lado izquierdo: Frase + Redes sociales -->
-                <div class="footer-left">
-                    <span class="footer-label">Contacto</span>
-                    <div class="footer-contact">
-                        <a href="https://wa.me/51923854054" class="footer-phone">+51 923 854 054</a>
-                        <span class="phone-separator">|</span>
-                        <a href="https://wa.me/51943417022" class="footer-phone">+51 943 417 022</a>
-                    </div>
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/profile.php?id=61578916965351" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook SALVA Coffee">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/salvacoffee.pe?igsh=MXkyYWhkaTFsMDFldQ==" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram @salvacoffee.pe">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://wa.me/51943417022" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp SALVA Coffee">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Lado derecho: Solo copyright -->
-                <div class="footer-right">
-                    <div class="footer-copyright">
-                        <span>©2025 Salva Coffee - Café 100% arábica de especialidad</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/script.js?v=20251004-1"></script>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>

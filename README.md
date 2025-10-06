@@ -8,20 +8,14 @@ Este es el sitio web corporativo de SALVA Coffee, una empresa familiar dedicada 
 
 ## Características
 
-- Diseño responsive y moderno
-- Navegación suave entre secciones
-- Galería interactiva del proceso de producción
-- Videos de productos con efectos hover
-- Optimizado para SEO y accesibilidad
-- Carga rápida con imágenes WebP optimizadas
+
 
 ## Tecnologías utilizadas
 
 - HTML5 semántico
 - CSS3 con Grid y Flexbox
 - JavaScript vanilla (ES6+)
-- Imágenes optimizadas en formato WebP
-- Videos MP4 para productos
+
 
 ## Estructura del proyecto
 
