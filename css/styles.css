@@ -13,6 +13,7 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
+    background: white;
 }
 
 .container {
@@ -30,7 +31,7 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header - Solución con espaciado uniforme */
 .header {
     position: fixed;
     top: 0;
@@ -38,18 +39,31 @@ body {
     width: 100%;
     background: transparent;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .header .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    height: 40px;
+    line-height: 1;
+}
+
+/* Logo - Lado izquierdo */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40px;
+    line-height: 1;
+    grid-column: 1;
 }
 
 .logo img {
     height: 30px;
     width: auto;
+    display: block;
     filter: brightness(0) saturate(100%);
 }
 
@@ -57,7 +71,7 @@ body {
 .nav {
     display: none;
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.98);
@@ -98,91 +112,75 @@ body {
     font-weight: 600;
 }
 
-/* Iconos sociales */
+/* Iconos sociales - Lado derecho */
 .social-icons {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    height: 40px;
+    line-height: 1;
+    grid-column: 3;
+    justify-self: end;
 }
 
 .social-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #333;
-    color: white;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #000;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+    line-height: 1;
 }
 
 .social-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
 }
 
 .social-icon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
 }
 
-.social-icon.instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-
-.social-icon.facebook:hover {
-    background: #1877f2;
-}
-
-.social-icon.whatsapp:hover {
-    background: #25d366;
-}
-
-/* Menu hamburguesa (siempre visible) */
+/* Menu hamburguesa - Centro absoluto */
 .menu-toggle {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 40px;
     cursor: pointer;
-    gap: 8px;
-    transition: all 0.3s ease;
-    width: 25px;
-    height: 10px;
-    position: relative;
+    gap: 4px;
+    line-height: 1;
+    grid-column: 2;
+    justify-self: center;
 }
 
 .menu-toggle span {
-    width: 25px;
+    display: block;
+    width: 100%;
     height: 2px;
     background: #000;
     transition: all 0.3s ease;
-    transform-origin: center;
-    position: absolute;
-}
-
-.menu-toggle span:nth-child(1) {
-    top: 0;
-}
-
-.menu-toggle span:nth-child(2) {
-    top: 8px;
 }
 
 /* Animación del menú hamburguesa */
 .menu-toggle.active span:nth-child(1) {
-    top: 4px;
-    transform: rotate(45deg);
+    transform: translateY(3px) rotate(45deg);
 }
 
 .menu-toggle.active span:nth-child(2) {
-    top: 4px;
-    transform: rotate(-45deg);
+    transform: translateY(-3px) rotate(-45deg);
 }
 
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -190,7 +188,7 @@ body {
     padding: 0;
     position: relative;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
 .hero::before {
@@ -282,7 +280,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Responsive Design */
+/* Responsive Design - Alineación consistente con Grid */
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -294,23 +292,58 @@ body {
         padding: 0 15px;
     }
     
+    .header {
+        padding: 12px 0;
+    }
+    
+    .header .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 36px;
+        line-height: 1;
+    }
+    
+    .logo {
+        height: 36px;
+        line-height: 1;
+        grid-column: 1;
+        justify-content: flex-start;
+    }
+    
+    .logo img {
+        height: 26px;
+    }
+    
+    .menu-toggle {
+        width: 22px;
+        height: 36px;
+        gap: 3px;
+        line-height: 1;
+        grid-column: 2;
+        justify-self: center;
+    }
+    
     .social-icons {
-        gap: 8px;
+        gap: 10px;
+        height: 36px;
+        line-height: 1;
+        grid-column: 3;
+        justify-self: end;
     }
     
     .social-icon {
-        width: 25px;
-        height: 25px;
+        width: 28px;
+        height: 28px;
+        line-height: 1;
     }
     
     .social-icon svg {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
     }
     
     .hero {
-        padding: 100px 0 50px;
-        text-align: left;
+        padding-top: 60px;
     }
     
     .hero-content {
@@ -333,18 +366,53 @@ body {
 }
 
 @media (max-width: 480px) {
-    .logo img {
-        height: 25px;
+    .header {
+        padding: 10px 0;
     }
     
-    .social-icon {
-        width: 22px;
+    .header .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 32px;
+        line-height: 1;
+    }
+    
+    .logo {
+        height: 32px;
+        line-height: 1;
+        grid-column: 1;
+        justify-content: flex-start;
+    }
+    
+    .logo img {
         height: 22px;
     }
     
+    .menu-toggle {
+        width: 20px;
+        height: 32px;
+        gap: 2px;
+        line-height: 1;
+        grid-column: 2;
+        justify-self: center;
+    }
+    
+    .social-icons {
+        height: 32px;
+        line-height: 1;
+        grid-column: 3;
+        justify-self: end;
+    }
+    
+    .social-icon {
+        width: 24px;
+        height: 24px;
+        line-height: 1;
+    }
+    
     .social-icon svg {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
     }
     
     .hero-title {
