@@ -1066,7 +1066,7 @@ body {
 .proceso-number {
     font-size: 120px;
     font-weight: 300;
-    color: var(--color-secondary);
+    color: var(--color-tertiary);
     font-family: 'Montserrat', sans-serif;
     line-height: 0.8;
     margin-bottom: 20px;
