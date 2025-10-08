@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const videos = [
         document.getElementById('video1'),
         document.getElementById('video2'),
-        document.getElementById('video3')
+        document.getElementById('video3'),
+        document.getElementById('video4')
     ];
     
     let currentVideoIndex = 0;
