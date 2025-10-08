@@ -499,6 +499,21 @@ body {
     letter-spacing: 1px;
 }
 
+.herencia-text-content {
+    position: relative;
+    padding-left: 120px;
+}
+
+.herencia-text-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 100px;
+    height: 3px;
+    background-color: #000;
+}
+
 .herencia-paragraph {
     font-size: 14px;
     line-height: 1.6;
@@ -512,23 +527,27 @@ body {
     margin-bottom: 40px;
 }
 
+.herencia-button-container {
+    padding-left: 120px;
+}
+
 .btn-outline {
     background: transparent;
     color: #000;
-    border: 2px solid #000;
-    padding: 15px 30px;
+    border: none;
+    padding: 0;
     font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: underline;
 }
 
 .btn-outline:hover {
-    background: #000;
-    color: #fff;
+    text-decoration: none;
 }
 
 .herencia-image {
@@ -539,6 +558,78 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+/* Compromiso Salva Section */
+.compromiso-section {
+    padding: 80px 0;
+    background-color: #f8f8f8;
+}
+
+.compromiso-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.compromiso-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.compromiso-line {
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+    margin: 20px auto 30px auto;
+}
+
+.compromiso-text-content {
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+.compromiso-paragraph {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.compromiso-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive Design para Compromiso Section */
+@media (max-width: 768px) {
+    .compromiso-section {
+        padding: 60px 0;
+    }
+    
+    .compromiso-content {
+        padding: 0 20px;
+    }
+    
+    .compromiso-paragraph {
+        font-size: 14px;
+        line-height: 1.6;
+    }
 }
 
 /* Responsive Design para Herencia Section */
