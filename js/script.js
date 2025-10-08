@@ -26,4 +26,43 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.classList.remove('active');
         }
     });
+
+    // Funcionalidad de reproducción secuencial de videos
+    const videos = [
+        document.getElementById('video1'),
+        document.getElementById('video2'),
+        document.getElementById('video3')
+    ];
+    
+    let currentVideoIndex = 0;
+    
+    function playNextVideo() {
+        // Ocultar video actual
+        videos[currentVideoIndex].classList.remove('active');
+        
+        // Avanzar al siguiente video
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        
+        // Mostrar y reproducir siguiente video
+        videos[currentVideoIndex].classList.add('active');
+        videos[currentVideoIndex].currentTime = 0;
+        videos[currentVideoIndex].play();
+    }
+    
+    // Configurar eventos para cada video
+    videos.forEach((video, index) => {
+        video.addEventListener('ended', function() {
+            playNextVideo();
+        });
+        
+        // Asegurar que solo el primer video esté visible inicialmente
+        if (index !== 0) {
+            video.classList.remove('active');
+        }
+    });
+    
+    // Iniciar el primer video
+    if (videos[0]) {
+        videos[0].play();
+    }
 });
