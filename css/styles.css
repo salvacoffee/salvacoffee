@@ -2,6 +2,62 @@
 /* Importar fuente Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+/* Variables CSS Globales */
+:root {
+    /* Colores principales */
+    --color-primary: #000;
+    --color-secondary: #333;
+    --color-tertiary: #666;
+    --color-light-gray: #e0e0e0;
+    --color-white: #fff;
+    --color-background: #ffffff;
+    
+    /* Tipografía */
+    --font-family: 'Montserrat', sans-serif;
+    --font-size-xs: 11px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-hero: clamp(2.2rem, 5.5vw, 4rem);
+    --font-size-title: clamp(1.8rem, 3vw, 2.5rem);
+    --font-size-subtitle: clamp(1.5rem, 5vw, 2rem);
+    --font-size-number-large: 120px;
+    --font-size-number-medium: 80px;
+    --font-size-number-small: 36px;
+    
+    /* Espaciados */
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-base: 20px;
+    --spacing-md: 25px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 50px;
+    --spacing-3xl: 60px;
+    --spacing-4xl: 80px;
+    
+    /* Gaps */
+    --gap-xs: 3px;
+    --gap-sm: 10px;
+    --gap-base: 15px;
+    --gap-md: 20px;
+    --gap-lg: 30px;
+    --gap-xl: 40px;
+    --gap-2xl: 60px;
+    
+    /* Bordes */
+    --border-width: 1px;
+    --border-width-thick: 2px;
+    --border-color: var(--color-light-gray);
+    --border-radius: 4px;
+    
+    /* Sombras y efectos */
+    --backdrop-blur: blur(15px);
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,18 +65,18 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
     line-height: 1.6;
-    color: #333;
+    color: var(--color-secondary);
     overflow-x: hidden;
-    background: white;
+    background: var(--color-white);
 }
 
 .container {
     max-width: none;
     width: 90%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-base);
 }
 
 /* Contenedor específico para el contenido general (no header) */
@@ -28,7 +84,7 @@ body {
     max-width: none;
     width: 80%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-base);
 }
 
 /* Header - Solución con espaciado uniforme */
@@ -39,7 +95,7 @@ body {
     width: 100%;
     background: transparent;
     z-index: 1000;
-    padding: 15px 0;
+    padding: var(--spacing-sm) 0;
 }
 
 .header .container {
@@ -188,6 +244,7 @@ body {
     position: relative;
     width: 100%;
     padding-top: 60px;
+    padding-bottom: calc(var(--spacing-4xl) * 2);
     overflow: hidden;
 }
 
@@ -263,46 +320,75 @@ body {
 /* Botones */
 .hero-buttons {
     display: flex;
-    gap: 15px;
+    gap: var(--spacing-md);
     justify-content: flex-start;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.btn {
-    padding: 18px 70px;
-    border: none;
-    border-radius: 3px;
-    font-size: 14px;
+/* Botones del Hero */
+.btn-primary {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background: transparent;
+    color: var(--color-white);
+    border: var(--border-width) solid var(--color-white);
+    font-size: var(--font-size-base);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     text-transform: uppercase;
     letter-spacing: 0.3px;
     min-width: 140px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.btn-primary {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+    font-family: var(--font-family);
 }
 
 .btn-primary:hover {
-    background: #fff;
-    color: #000;
+    background: var(--color-white);
+    color: var(--color-primary);
     transform: translateY(-1px);
 }
 
 .btn-secondary {
+    padding: var(--spacing-sm) var(--spacing-xl);
     background: transparent;
-    color: #fff;
+    color: var(--color-white);
     border: none;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    min-width: 140px;
+    font-family: var(--font-family);
 }
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-1px);
+}
+
+/* Botón de Herencia */
+.btn-outline {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: transparent;
+    color: var(--color-primary);
+    border: var(--border-width-thick) solid var(--color-primary);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: var(--font-family);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
 }
 
 /* Responsive Design - Alineación consistente con Grid */
@@ -456,47 +542,75 @@ body {
 }
 
 /* Herencia Familiar Section */
+/* Clases base reutilizables para secciones */
+.section {
+    padding: calc(var(--spacing-4xl) * 2) 0;
+    background-color: var(--color-background);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+}
+
+.section-subtitle {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    color: var(--color-tertiary);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+}
+
+.section-title {
+    font-size: var(--font-size-title);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.1;
+    font-family: var(--font-family);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-paragraph {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-base);
+    font-family: var(--font-family);
+    font-weight: 400;
+}
+
 .herencia-section {
-    padding: 80px 0;
-    background-color: #ffffff;
+    padding: calc(var(--spacing-4xl) * 2) 0;
+    background-color: var(--color-background);
 }
 
 .herencia-container {
     width: 80%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-base);
 }
 
 .herencia-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: var(--gap-2xl);
     align-items: center;
 }
 
 .herencia-text {
-    padding-right: 20px;
+    padding-right: var(--spacing-base);
 }
 
 .herencia-subtitle {
-    font-size: 14px;
-    font-weight: 400;
-    color: #666;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    /* Usa la clase base .section-subtitle */
 }
 
 .herencia-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 30px;
-    line-height: 1.1;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    /* Usa la clase base .section-title */
 }
 
 .herencia-text-content {
@@ -511,15 +625,15 @@ body {
     top: 0.5em;
     width: 100px;
     height: 3px;
-    background-color: #000;
+    background-color: var(--color-primary);
 }
 
 .herencia-paragraph {
-    font-size: 14px;
+    font-size: var(--font-size-base);
     line-height: 1.6;
-    color: #333;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-base);
+    font-family: var(--font-family);
     font-weight: 400;
 }
 
@@ -529,28 +643,6 @@ body {
 
 .herencia-button-container {
     padding-left: 120px;
-}
-
-.btn-outline {
-    background: white;
-    color: #000;
-    border: 2px solid #000;
-    border-radius: 0;
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-}
-
-.btn-outline:hover {
-    background: #000;
-    color: white;
-    border: 2px solid #000;
 }
 
 .herencia-image {
@@ -565,8 +657,8 @@ body {
 
 /* Compromiso Salva Section */
 .compromiso-section {
-    padding: 80px 0;
-    background-color: #ffffff;
+    padding: calc(var(--spacing-4xl) * 2) 0;
+    background-color: var(--color-background);
 }
 
 .compromiso-content {
@@ -576,12 +668,12 @@ body {
 }
 
 .compromiso-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: var(--font-size-title);
     font-weight: 700;
-    color: #000;
-    margin-bottom: 30px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.1;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -589,21 +681,21 @@ body {
 .compromiso-line {
     width: 100px;
     height: 2px;
-    background-color: #000;
-    margin: 20px auto 30px auto;
+    background-color: var(--color-primary);
+    margin: var(--spacing-base) auto var(--spacing-lg) auto;
 }
 
 .compromiso-text-content {
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-xl);
     margin-top: 0;
 }
 
 .compromiso-paragraph {
-    font-size: 16px;
+    font-size: var(--font-size-md);
     line-height: 1.8;
-    color: #333;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-base);
+    font-family: var(--font-family);
     font-weight: 400;
     max-width: 700px;
     margin-left: auto;
@@ -611,12 +703,7 @@ body {
 }
 
 .compromiso-subtitle {
-    font-size: 14px;
-    font-weight: 400;
-    color: #666;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    /* Usa la clase base .section-subtitle */
 }
 
 /* Responsive Design para Compromiso Section */
@@ -692,8 +779,8 @@ body {
 
 /* El Arte Detrás de Cada Taza Section */
 .arte-section {
-    padding: 80px 0;
-    background-color: #ffffff;
+    padding: calc(var(--spacing-4xl) * 2) 0;
+    background-color: var(--color-background);
 }
 
 .arte-content {
@@ -703,38 +790,25 @@ body {
 }
 
 .arte-header {
-    margin-bottom: 60px;
+    margin-bottom: var(--spacing-3xl);
     text-align: center;
 }
 
 .arte-subtitle {
-    font-size: 14px;
-    font-weight: 400;
-    color: #666;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    /* Usa la clase base .section-subtitle */
 }
 
 .arte-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 30px;
-    line-height: 1.1;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    /* Usa la clase base .section-title */
 }
 
 .arte-text-content {
-    margin-top: 30px;
+    margin-top: var(--spacing-lg);
     text-align: center;
 }
 
 .arte-paragraph {
-    font-size: 14px;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: #303030;
     max-width: 800px;
@@ -915,34 +989,21 @@ body {
 
 /* El Arte de la Perfección Section */
 .perfeccion-section {
-    padding: 80px 0;
-    background: white;
+    padding: calc(var(--spacing-4xl) * 2) 0;
+    background: var(--color-white);
 }
 
 .perfeccion-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: var(--spacing-4xl);
 }
 
 .perfeccion-subtitle {
-    font-size: 14px;
-    font-weight: 400;
-    color: #666;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    /* Usa la clase base .section-subtitle */
 }
 
 .perfeccion-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 30px;
-    line-height: 1.1;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    /* Usa la clase base .section-title */
 }
 
 .perfeccion-text-content {
@@ -951,22 +1012,22 @@ body {
 }
 
 .perfeccion-paragraph {
-    font-size: 18px;
+    font-size: var(--font-size-lg);
     line-height: 1.6;
-    color: #666;
+    color: var(--color-tertiary);
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
 }
 
 .proceso-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+    gap: var(--gap-xl);
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
-    border-top: 2px solid #e0e0e0;
-    padding-top: 60px;
+    padding: 0 var(--spacing-base);
+    border-top: var(--border-width-thick) solid var(--border-color);
+    padding-top: var(--spacing-3xl);
     position: relative;
 }
 
@@ -1000,7 +1061,7 @@ body {
 .proceso-number {
     font-size: 120px;
     font-weight: 300;
-    color: #e0e0e0;
+    color: var(--color-secondary);
     font-family: 'Montserrat', sans-serif;
     line-height: 0.8;
     margin-bottom: 20px;

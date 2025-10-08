@@ -33,38 +33,75 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('video2'),
         document.getElementById('video3'),
         document.getElementById('video4')
-    ];
+    ].filter(video => video !== null); // Filtrar videos que no existen
     
     let currentVideoIndex = 0;
+    let isTransitioning = false;
     
     function playNextVideo() {
-        // Ocultar video actual
-        videos[currentVideoIndex].classList.remove('active');
+        if (isTransitioning || videos.length === 0) return;
         
-        // Avanzar al siguiente video
-        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        isTransitioning = true;
+        const currentVideo = videos[currentVideoIndex];
         
-        // Mostrar y reproducir siguiente video
-        videos[currentVideoIndex].classList.add('active');
-        videos[currentVideoIndex].currentTime = 0;
-        videos[currentVideoIndex].play();
+        // Fade out del video actual
+        currentVideo.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Ocultar video actual
+            currentVideo.classList.remove('active');
+            
+            // Avanzar al siguiente video
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            const nextVideo = videos[currentVideoIndex];
+            
+            // Preparar siguiente video
+            nextVideo.currentTime = 0;
+            nextVideo.style.opacity = '0';
+            nextVideo.classList.add('active');
+            
+            // Fade in del siguiente video
+            setTimeout(() => {
+                nextVideo.style.opacity = '1';
+                nextVideo.play().catch(error => {
+                    console.log('Error reproduciendo video:', error);
+                    // Si hay error, intentar con el siguiente video
+                    setTimeout(() => playNextVideo(), 1000);
+                });
+                isTransitioning = false;
+            }, 100);
+        }, 500); // Tiempo de fade out
     }
     
     // Configurar eventos para cada video
     videos.forEach((video, index) => {
-        video.addEventListener('ended', function() {
-            playNextVideo();
-        });
-        
-        // Asegurar que solo el primer video esté visible inicialmente
-        if (index !== 0) {
-            video.classList.remove('active');
+        if (video) {
+            video.addEventListener('ended', function() {
+                playNextVideo();
+            });
+            
+            video.addEventListener('error', function() {
+                console.log(`Error en video ${index + 1}, saltando al siguiente`);
+                setTimeout(() => playNextVideo(), 1000);
+            });
+            
+            // Asegurar que solo el primer video esté visible inicialmente
+            if (index !== 0) {
+                video.classList.remove('active');
+                video.style.opacity = '0';
+            } else {
+                video.style.opacity = '1';
+            }
         }
     });
     
     // Iniciar el primer video
-    if (videos[0]) {
-        videos[0].play();
+    if (videos.length > 0 && videos[0]) {
+        videos[0].play().catch(error => {
+            console.log('Error iniciando primer video:', error);
+            // Si el primer video falla, intentar con el siguiente
+            setTimeout(() => playNextVideo(), 1000);
+        });
     }
 
     // Funcionalidad de animaciones al hacer scroll
