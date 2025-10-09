@@ -96,6 +96,12 @@ body {
     background: transparent;
     z-index: 1000;
     padding: var(--spacing-sm) 0;
+    transition: all 0.3s ease;
+}
+
+/* Header con elementos negros cuando no está en hero */
+.header.scrolled {
+    /* Sin fondo ni sombra, solo cambios de color de elementos */
 }
 
 .header .container {
@@ -121,6 +127,12 @@ body {
     width: auto;
     display: block;
     filter: brightness(0) saturate(100%) invert(1);
+    transition: filter 0.3s ease;
+}
+
+/* Logo negro cuando el header tiene scroll */
+.header.scrolled .logo img {
+    filter: brightness(0) saturate(100%) invert(0);
 }
 
 /* Navegación */
@@ -188,8 +200,13 @@ body {
     justify-content: center;
     color: #fff;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
     line-height: 1;
+}
+
+/* Iconos sociales negros cuando el header tiene scroll */
+.header.scrolled .social-icon {
+    color: #333;
 }
 
 .social-icon svg {
@@ -224,6 +241,11 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Menú hamburguesa negro cuando el header tiene scroll */
+.header.scrolled .menu-toggle span {
+    background: #333;
+}
+
 /* Animación del menú hamburguesa */
 .menu-toggle.active span:nth-child(1) {
     transform: translateY(3px) rotate(45deg);
@@ -244,8 +266,8 @@ body {
     position: relative;
     width: 100%;
     padding-top: 60px;
-    padding-bottom: calc(var(--spacing-4xl) * 2);
     overflow: hidden;
+    background-color: #1a1a1a;
 }
 
 /* Video de fondo del hero */
@@ -258,11 +280,13 @@ body {
     object-fit: cover;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    background-color: transparent;
 }
 
 .hero-video.active {
     opacity: 1;
+    z-index: 1;
 }
 
 .hero::before {
@@ -280,6 +304,8 @@ body {
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-logo {
@@ -292,7 +318,7 @@ body {
 
 .hero::after {
     content: '';
-    height: 45vh;
+    height: 5vh;
     flex-shrink: 0;
 }
 
@@ -541,7 +567,34 @@ body {
     }
 }
 
-/* Herencia Familiar Section */
+/* Líneas de separación entre secciones */
+.section-separator {
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-light-gray);
+    margin: 0 auto;
+}
+
+/* Aplicar separadores a todas las secciones excepto después del hero */
+.herencia-section,
+.compromiso-section,
+.arte-section,
+.perfeccion-section {
+    position: relative;
+}
+
+.herencia-section::after,
+.compromiso-section::after,
+.arte-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-light-gray);
+}
 /* Clases base reutilizables para secciones */
 .section {
     padding: calc(var(--spacing-4xl) * 2) 0;
@@ -586,6 +639,7 @@ body {
 .herencia-section {
     padding: calc(var(--spacing-4xl) * 2) 0;
     background-color: var(--color-background);
+    margin-top: calc(var(--spacing-4xl) * 2);
 }
 
 .herencia-container {
