@@ -166,32 +166,38 @@ const productosData = {
     lavado: {
         nombre: 'CAFÉ LAVADO',
         imagen: 'assets/productoLavado.png',
-        fondo: 'assets/fondoProductoLavado.jpg',
-        texto1: 'Tradicional Lavado',
+        fondo: 'assets/fondoProductoLavado1.jpg',
+        texto1: 'Proceso Lavado',
         texto2TituloIzq: 'Sabor equilibrado',
-        texto2ParrafoIzq: 'Un café limpio y suave, con cuerpo medio y textura balanceada. Su perfil clásico resalta la esencia natural del grano con una sensación fresca y pura en cada sorbo.\n\nPerfil: Balanceado y suave\nNotas: cítricos, florales a jazmín y flor de naranja, té negro.',
+        texto2PerfilIzq: 'Perfil: Balanceado y suave\nNotas: cítricos, florales a jazmín y flor de naranja, té negro.',
+        texto2DescripcionIzq: 'Un café limpio y suave, con cuerpo medio y textura balanceada. Su perfil clásico resalta la esencia natural del grano con una sensación fresca y pura en cada sorbo.',
         texto2TituloDer: 'Proceso lavado',
-        texto2ParrafoDer: 'Granos cuidadosamente seleccionados y lavados para lograr una taza pura y brillante, resultado de un café de 84 puntos en cata que refleja su origen de altura.'
+        texto2ParrafoDer: 'Granos cuidadosamente seleccionados y lavados para lograr una taza pura y brillante, resultado de un café de 84 puntos en cata que refleja su origen de altura.',
+        color: '#1ec9d9'
     },
     natural: {
         nombre: 'CAFÉ NATURAL',
         imagen: 'assets/productoNatural.png',
         fondo: 'assets/fondoProductoNatural.jpg',
-        texto1: 'Natural Process',
+        texto1: 'Proceso Natural',
         texto2TituloIzq: 'Sabor intenso y afrutado',
-        texto2ParrafoIzq: 'Un café de cuerpo completo y textura densa, con notas vibrantes que evocan frutos rojos maduros. Su proceso natural potencia los aromas licorosos y el dulzor profundo del grano.\n\nPerfil: Intenso y afrutado\nNotas: frutos rojos, vino tinto, licorosas afrutadas, chocolate oscuro.',
+        texto2PerfilIzq: 'Perfil: Intenso y afrutado\nNotas: frutos rojos, vino tinto, licorosas afrutadas, chocolate oscuro.',
+        texto2DescripcionIzq: 'Un café de cuerpo completo y textura densa, con notas vibrantes que evocan frutos rojos maduros. Su proceso natural potencia los aromas licorosos y el dulzor profundo del grano.',
         texto2TituloDer: 'Proceso natural',
-        texto2ParrafoDer: 'Granos secados al sol con su cereza completa, un método artesanal que realza su aroma y profundidad. Un café de 84 puntos en cata, resultado de una elaboración cuidadosa en cada detalle.'
+        texto2ParrafoDer: 'Granos secados al sol con su cereza completa, un método artesanal que realza su aroma y profundidad. Un café de 84 puntos en cata, resultado de una elaboración cuidadosa en cada detalle.',
+        color: '#fe4c3b'
     },
     honey: {
         nombre: 'CAFÉ HONEY',
         imagen: 'assets/productoHoney.png',
         fondo: 'assets/fondoProductoHoney.jpg',
-        texto1: 'Honey Process',
+        texto1: 'Proceso Honey',
         texto2TituloIzq: 'Sabor dulce y fragante',
-        texto2ParrafoIzq: 'Un café de cuerpo medio-alto, con textura sedosa y dulzor natural. El secado parcial con su mucílago aporta notas florales y frutales, creando una taza con carácter envolvente y final prolongado.\n\nPerfil: Dulce y aromático\nNotas: miel, caramelo, melocotón, damasco, ciruela y panela.',
+        texto2PerfilIzq: 'Perfil: Dulce y aromático\nNotas: miel, caramelo, melocotón, damasco, ciruela y panela.',
+        texto2DescripcionIzq: 'Un café de cuerpo medio-alto, con textura sedosa y dulzor natural. El secado parcial con su mucílago aporta notas florales y frutales, creando una taza con carácter envolvente y final prolongado.',
         texto2TituloDer: 'Proceso honey',
-        texto2ParrafoDer: 'Secado con parte del mucílago para potenciar la complejidad del sabor. Un café de 84 puntos en cata, valorado por su equilibrio entre dulzor y cuerpo.'
+        texto2ParrafoDer: 'Secado con parte del mucílago para potenciar la complejidad del sabor. Un café de 84 puntos en cata, valorado por su equilibrio entre dulzor y cuerpo.',
+        color: '#fdc306'
     }
 };
 
@@ -239,19 +245,29 @@ function abrirProductoDetalle(tipoProducto) {
     if (titulo1) titulo1.textContent = linea1;
     if (titulo2) titulo2.textContent = linea2;
     
-    // Actualizar PÁRRAFO IZQUIERDO
+    // Actualizar perfil/notas
+    const perfilIzq = productoSection.querySelector('.producto-perfil-container .parrafo-perfil');
+    if (perfilIzq) perfilIzq.innerHTML = producto.texto2PerfilIzq.replace(/Perfil:/g, '<strong>Perfil:</strong>').replace(/Notas:/g, '<strong>Notas:</strong>');
+    
+    // Actualizar párrafo izquierdo
     const tituloIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-titulo');
     const textoIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-texto');
     
     if (tituloIzq) tituloIzq.textContent = producto.texto2TituloIzq;
-    if (textoIzq) textoIzq.textContent = producto.texto2ParrafoIzq;
+    if (textoIzq) textoIzq.textContent = producto.texto2DescripcionIzq;
     
-    // Actualizar PÁRRAFO DERECHO
+    // Actualizar párrafo derecho
     const tituloDer = productoSection.querySelector('.producto-parrafo-der .parrafo-titulo');
     const textoDer = productoSection.querySelector('.producto-parrafo-der .parrafo-texto');
     
     if (tituloDer) tituloDer.textContent = producto.texto2TituloDer;
     if (textoDer) textoDer.textContent = producto.texto2ParrafoDer;
+    
+    // Actualizar color del rectángulo
+    const rectangulo = productoSection.querySelector('.producto-rectangulo-color');
+    if (rectangulo && producto.color) {
+        rectangulo.style.backgroundColor = producto.color;
+    }
     
     // Bloquear scroll
     document.body.style.overflow = 'hidden';
@@ -315,12 +331,22 @@ function siguienteProducto() {
     if (titulo1) titulo1.textContent = linea1;
     if (titulo2) titulo2.textContent = linea2;
     
+    // Actualizar perfil/notas
+    const perfilIzq = productoSection.querySelector('.producto-perfil-container .parrafo-perfil');
+    if (perfilIzq) {
+        // Aplicar negrita a "Perfil:" y "Notas:"
+        const textoConNegrita = producto.texto2PerfilIzq
+            .replace(/Perfil:/g, '<strong>Perfil:</strong>')
+            .replace(/Notas:/g, '<strong>Notas:</strong>');
+        perfilIzq.innerHTML = textoConNegrita;
+    }
+    
     // Actualizar párrafo izquierdo
     const tituloIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-titulo');
     const textoIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-texto');
     
     if (tituloIzq) tituloIzq.textContent = producto.texto2TituloIzq;
-    if (textoIzq) textoIzq.textContent = producto.texto2ParrafoIzq;
+    if (textoIzq) textoIzq.textContent = producto.texto2DescripcionIzq;
     
     // Actualizar párrafo derecho
     const tituloDer = productoSection.querySelector('.producto-parrafo-der .parrafo-titulo');
@@ -328,4 +354,10 @@ function siguienteProducto() {
     
     if (tituloDer) tituloDer.textContent = producto.texto2TituloDer;
     if (textoDer) textoDer.textContent = producto.texto2ParrafoDer;
+    
+    // Actualizar color del rectángulo
+    const rectangulo = productoSection.querySelector('.producto-rectangulo-color');
+    if (rectangulo && producto.color) {
+        rectangulo.style.backgroundColor = producto.color;
+    }
 }
