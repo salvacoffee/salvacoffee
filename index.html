@@ -446,6 +446,123 @@
             </div>
         </div>
     </section>
+
+    <!-- Productos General Section -->
+    <section class="productos-general-section">
+        <div class="productos-general-header">
+            <p class="productos-general-subtitle">El café de nuestra familia</p>
+            <h2 class="productos-general-title">NUESTROS PRODUCTOS</h2>
+        </div>
+        
+        <div class="productos-cards-container">
+            <!-- Card 1 - Café Lavado -->
+            <div class="producto-card" data-producto="lavado" onclick="abrirProductoDetalle('lavado')">
+                <div class="producto-card-image">
+                    <img src="assets/productoLavado.png" alt="Café Lavado SALVA">
+                </div>
+                <div class="producto-card-content">
+                    <h3 class="producto-card-nombre">CAFÉ LAVADO</h3>
+                    <div class="producto-card-info">
+                        <div class="producto-card-detalles">
+                            <p class="producto-tipo">Café de especialidad</p>
+                            <p class="producto-puntaje">84 Pts.</p>
+                        </div>
+                        <div class="producto-card-precio">
+                            <p class="precio">S/.25</p>
+                            <p class="precio-detalle">250g</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 - Café Natural -->
+            <div class="producto-card" data-producto="natural" onclick="abrirProductoDetalle('natural')">
+                <div class="producto-card-image">
+                    <img src="assets/productoNatural.png" alt="Café Natural SALVA">
+                </div>
+                <div class="producto-card-content">
+                    <h3 class="producto-card-nombre">CAFÉ NATURAL</h3>
+                    <div class="producto-card-info">
+                        <div class="producto-card-detalles">
+                            <p class="producto-tipo">Café de especialidad</p>
+                            <p class="producto-puntaje">84 Pts.</p>
+                        </div>
+                        <div class="producto-card-precio">
+                            <p class="precio">S/.25</p>
+                            <p class="precio-detalle">250g</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 - Café Honey -->
+            <div class="producto-card" data-producto="honey" onclick="abrirProductoDetalle('honey')">
+                <div class="producto-card-image">
+                    <img src="assets/productoHoney.png" alt="Café Honey SALVA">
+                </div>
+                <div class="producto-card-content">
+                    <h3 class="producto-card-nombre">CAFÉ HONEY</h3>
+                    <div class="producto-card-info">
+                        <div class="producto-card-detalles">
+                            <p class="producto-tipo">Café de especialidad</p>
+                            <p class="producto-puntaje">84 Pts.</p>
+                        </div>
+                        <div class="producto-card-precio">
+                            <p class="precio">S/.25</p>
+                            <p class="precio-detalle">250g</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Productos Section -->
+    <section class="productos-section">
+        <!-- Dos capas de fondo para crossfade suave -->
+        <div class="producto-fondo-imagen fondo-capa-1"></div>
+        <div class="producto-fondo-imagen fondo-capa-2"></div>
+        
+        <!-- Logo en esquina superior izquierda -->
+        <div class="producto-logo">
+            <img src="assets/logo/logo1.svg" alt="SALVA Coffee Logo">
+        </div>
+        
+        <!-- Botón de cierre -->
+        <button class="btn-cerrar-producto" onclick="cerrarProductoDetalle()" aria-label="Cerrar">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.5 7.5L7.5 22.5M7.5 7.5L22.5 22.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <!-- Botón Siguiente -->
+        <button class="btn-siguiente-producto" onclick="siguienteProducto()" aria-label="Siguiente">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        
+        <!-- Título Principal (Fila 1) - 23% desde arriba y 13% desde izquierda -->
+        <div class="producto-titulo-principal">
+            <h2 class="titulo-linea1">TEXTO</h2>
+            <h2 class="titulo-linea2">PRINCIPAL</h2>
+        </div>
+        
+        <!-- Párrafos (Fila 2) - 64% desde arriba, 8% desde izquierda y derecha -->
+        <div class="producto-parrafos-container">
+            <!-- Párrafo Izquierdo -->
+            <div class="producto-parrafo-izq">
+                <h3 class="parrafo-titulo">TÍTULO IZQUIERDO</h3>
+                <p class="parrafo-texto">Texto del párrafo izquierdo.</p>
+            </div>
+            
+            <!-- Párrafo Derecho -->
+            <div class="producto-parrafo-der">
+                <h3 class="parrafo-titulo">TÍTULO DERECHO</h3>
+                <p class="parrafo-texto">Texto del párrafo derecho.</p>
+            </div>
+        </div>
+    </section>
     
     <!-- JavaScript -->
     <script src="js/script.js"></script>

@@ -1193,3 +1193,367 @@ body {
 .animate-delay-3 {
     transition-delay: 0.6s;
 }
+
+/* Productos General Section */
+.productos-general-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.productos-general-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.productos-general-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+
+.productos-general-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.productos-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.producto-card {
+    flex: 1;
+    max-width: 350px;
+    background-color: #ffffff;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s ease;
+    cursor: pointer;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.producto-card:active {
+    opacity: 0.8;
+}
+
+.producto-card-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-card-content {
+    background-color: #ffffff;
+    padding: 25px;
+}
+
+.producto-card-nombre {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.producto-card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.producto-card-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.producto-tipo {
+    font-size: 14px;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.producto-puntaje {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.producto-card-precio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.precio {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.precio-detalle {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive para Productos General */
+@media (max-width: 968px) {
+    .productos-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .producto-card {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Productos Section */
+.productos-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+    z-index: 9999;
+    will-change: opacity;
+    background-color: #1a1a1a; /* Fondo sólido FIJO que NUNCA cambia */
+}
+
+.productos-section.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+
+/* Capa de fondo con imagen (dos capas para crossfade) */
+.producto-fondo-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.6s ease;
+    z-index: 1;
+}
+
+.fondo-capa-1 {
+    z-index: 2;
+}
+
+.fondo-capa-2 {
+    z-index: 1;
+    opacity: 0;
+}
+
+/* Botón de cierre */
+.btn-cerrar-producto {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.btn-cerrar-producto:hover {
+    opacity: 0.6;
+}
+
+.btn-cerrar-producto svg {
+    color: #333;
+}
+
+/* Logo en detalle de producto */
+.producto-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10000;
+    height: 30px;
+}
+
+.producto-logo img {
+    height: 100%;
+    width: auto;
+    filter: brightness(0);
+}
+
+/* Botón Siguiente */
+.btn-siguiente-producto {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.btn-siguiente-producto:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-siguiente-producto:hover svg {
+    color: white;
+}
+
+.btn-siguiente-producto svg {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* Título Principal - Fila 1 (23% desde arriba, 13% desde izquierda) */
+.producto-titulo-principal {
+    position: absolute;
+    top: 23%;
+    left: 13%;
+    z-index: 100;
+}
+
+.producto-titulo-principal h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: #333;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.titulo-linea1,
+.titulo-linea2 {
+    margin: 0;
+}
+
+/* Párrafos Container - Fila 2 (64% desde arriba, 8% desde izquierda y derecha = 84% ancho) */
+.producto-parrafos-container {
+    position: absolute;
+    top: 64%;
+    left: 8%;
+    width: 84%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    z-index: 100;
+}
+
+/* Párrafo Izquierdo y Derecho - Cada uno ocupa 20% del ancho total */
+.producto-parrafo-izq,
+.producto-parrafo-der {
+    width: 20%;
+    text-align: left;
+}
+
+.parrafo-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.parrafo-texto {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* Responsive Design para Productos */
+@media (max-width: 768px) {
+    .producto-titulo-principal {
+        top: 15%;
+        left: 10%;
+    }
+    
+    .producto-parrafos-container {
+        top: 50%;
+        left: 5%;
+        width: 90%;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .producto-parrafo-izq,
+    .producto-parrafo-der {
+        max-width: 100%;
+    }
+}

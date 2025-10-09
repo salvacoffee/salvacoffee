@@ -160,3 +160,172 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 });
+
+// Datos de los productos
+const productosData = {
+    lavado: {
+        nombre: 'CAFÉ LAVADO',
+        imagen: 'assets/productoLavado.png',
+        fondo: 'assets/fondoProductoLavado.jpg',
+        texto1: 'Tradicional Lavado',
+        texto2TituloIzq: 'Sabor equilibrado',
+        texto2ParrafoIzq: 'Un café limpio y suave, con cuerpo medio y textura balanceada. Su perfil clásico resalta la esencia natural del grano con una sensación fresca y pura en cada sorbo.\n\nPerfil: Balanceado y suave\nNotas: cítricos, florales a jazmín y flor de naranja, té negro.',
+        texto2TituloDer: 'Proceso lavado',
+        texto2ParrafoDer: 'Granos cuidadosamente seleccionados y lavados para lograr una taza pura y brillante, resultado de un café de 84 puntos en cata que refleja su origen de altura.'
+    },
+    natural: {
+        nombre: 'CAFÉ NATURAL',
+        imagen: 'assets/productoNatural.png',
+        fondo: 'assets/fondoProductoNatural.jpg',
+        texto1: 'Natural Process',
+        texto2TituloIzq: 'Sabor intenso y afrutado',
+        texto2ParrafoIzq: 'Un café de cuerpo completo y textura densa, con notas vibrantes que evocan frutos rojos maduros. Su proceso natural potencia los aromas licorosos y el dulzor profundo del grano.\n\nPerfil: Intenso y afrutado\nNotas: frutos rojos, vino tinto, licorosas afrutadas, chocolate oscuro.',
+        texto2TituloDer: 'Proceso natural',
+        texto2ParrafoDer: 'Granos secados al sol con su cereza completa, un método artesanal que realza su aroma y profundidad. Un café de 84 puntos en cata, resultado de una elaboración cuidadosa en cada detalle.'
+    },
+    honey: {
+        nombre: 'CAFÉ HONEY',
+        imagen: 'assets/productoHoney.png',
+        fondo: 'assets/fondoProductoHoney.jpg',
+        texto1: 'Honey Process',
+        texto2TituloIzq: 'Sabor dulce y fragante',
+        texto2ParrafoIzq: 'Un café de cuerpo medio-alto, con textura sedosa y dulzor natural. El secado parcial con su mucílago aporta notas florales y frutales, creando una taza con carácter envolvente y final prolongado.\n\nPerfil: Dulce y aromático\nNotas: miel, caramelo, melocotón, damasco, ciruela y panela.',
+        texto2TituloDer: 'Proceso honey',
+        texto2ParrafoDer: 'Secado con parte del mucílago para potenciar la complejidad del sabor. Un café de 84 puntos en cata, valorado por su equilibrio entre dulzor y cuerpo.'
+    }
+};
+
+// Variable para rastrear el producto actual
+let productoActual = null;
+
+// Orden de productos para navegación
+const ordenProductos = ['lavado', 'natural', 'honey'];
+
+// Precargar imágenes de fondo para evitar lag al abrir
+function precargarImagenesFondo() {
+    Object.values(productosData).forEach(producto => {
+        const img = new Image();
+        img.src = producto.fondo;
+    });
+}
+
+// Llamar a la función de precarga cuando se carga la página
+window.addEventListener('load', precargarImagenesFondo);
+
+// Función para abrir el producto detalle
+function abrirProductoDetalle(tipoProducto) {
+    productoActual = tipoProducto; // Guardar producto actual
+    const producto = productosData[tipoProducto];
+    const productoSection = document.querySelector('.productos-section');
+    const fondoCapa1 = document.querySelector('.fondo-capa-1');
+    const fondoCapa2 = document.querySelector('.fondo-capa-2');
+    
+    if (!producto || !productoSection || !fondoCapa1) return;
+    
+    // Actualizar FONDO en la primera capa
+    fondoCapa1.style.backgroundImage = `url('${producto.fondo}')`;
+    fondoCapa1.style.opacity = '1';
+    if (fondoCapa2) fondoCapa2.style.opacity = '0';
+    
+    // Actualizar TÍTULO PRINCIPAL (en 2 líneas)
+    const tituloCompleto = producto.texto1.split(' ');
+    const mitad = Math.ceil(tituloCompleto.length / 2);
+    const linea1 = tituloCompleto.slice(0, mitad).join(' ');
+    const linea2 = tituloCompleto.slice(mitad).join(' ');
+    
+    const titulo1 = productoSection.querySelector('.titulo-linea1');
+    const titulo2 = productoSection.querySelector('.titulo-linea2');
+    
+    if (titulo1) titulo1.textContent = linea1;
+    if (titulo2) titulo2.textContent = linea2;
+    
+    // Actualizar PÁRRAFO IZQUIERDO
+    const tituloIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-titulo');
+    const textoIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-texto');
+    
+    if (tituloIzq) tituloIzq.textContent = producto.texto2TituloIzq;
+    if (textoIzq) textoIzq.textContent = producto.texto2ParrafoIzq;
+    
+    // Actualizar PÁRRAFO DERECHO
+    const tituloDer = productoSection.querySelector('.producto-parrafo-der .parrafo-titulo');
+    const textoDer = productoSection.querySelector('.producto-parrafo-der .parrafo-texto');
+    
+    if (tituloDer) tituloDer.textContent = producto.texto2TituloDer;
+    if (textoDer) textoDer.textContent = producto.texto2ParrafoDer;
+    
+    // Bloquear scroll
+    document.body.style.overflow = 'hidden';
+    
+    // Mostrar con un pequeño delay para permitir que el contenido se renderice
+    setTimeout(() => {
+        productoSection.classList.add('active');
+    }, 10);
+}
+
+// Función para cerrar el producto detalle (opcional)
+function cerrarProductoDetalle() {
+    const productoSection = document.querySelector('.productos-section');
+    if (productoSection) {
+        productoSection.classList.remove('active');
+        // Restaurar el scroll del body
+        document.body.style.overflow = '';
+    }
+}
+
+// Función para ir al siguiente producto
+function siguienteProducto() {
+    if (!productoActual) return;
+    
+    const fondoCapa1 = document.querySelector('.fondo-capa-1');
+    const fondoCapa2 = document.querySelector('.fondo-capa-2');
+    const productoSection = document.querySelector('.productos-section');
+    
+    if (!productoSection || !fondoCapa1 || !fondoCapa2) return;
+    
+    // Determinar cuál capa está visible
+    const capa1Visible = fondoCapa1.style.opacity !== '0';
+    const capaVisible = capa1Visible ? fondoCapa1 : fondoCapa2;
+    const capaOculta = capa1Visible ? fondoCapa2 : fondoCapa1;
+    
+    // Calcular siguiente producto
+    const currentIndex = ordenProductos.indexOf(productoActual);
+    const nextIndex = (currentIndex + 1) % ordenProductos.length;
+    const nextProducto = ordenProductos[nextIndex];
+    productoActual = nextProducto;
+    const producto = productosData[nextProducto];
+    
+    // Configurar nueva imagen en la capa oculta
+    capaOculta.style.backgroundImage = `url('${producto.fondo}')`;
+    
+    // Hacer crossfade: ocultar capa visible, mostrar capa oculta
+    setTimeout(() => {
+        capaVisible.style.opacity = '0';
+        capaOculta.style.opacity = '1';
+    }, 10);
+    
+    // Actualizar textos simultáneamente
+    const tituloCompleto = producto.texto1.split(' ');
+    const mitad = Math.ceil(tituloCompleto.length / 2);
+    const linea1 = tituloCompleto.slice(0, mitad).join(' ');
+    const linea2 = tituloCompleto.slice(mitad).join(' ');
+    
+    const titulo1 = productoSection.querySelector('.titulo-linea1');
+    const titulo2 = productoSection.querySelector('.titulo-linea2');
+    
+    if (titulo1) titulo1.textContent = linea1;
+    if (titulo2) titulo2.textContent = linea2;
+    
+    // Actualizar párrafo izquierdo
+    const tituloIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-titulo');
+    const textoIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-texto');
+    
+    if (tituloIzq) tituloIzq.textContent = producto.texto2TituloIzq;
+    if (textoIzq) textoIzq.textContent = producto.texto2ParrafoIzq;
+    
+    // Actualizar párrafo derecho
+    const tituloDer = productoSection.querySelector('.producto-parrafo-der .parrafo-titulo');
+    const textoDer = productoSection.querySelector('.producto-parrafo-der .parrafo-texto');
+    
+    if (tituloDer) tituloDer.textContent = producto.texto2TituloDer;
+    if (textoDer) textoDer.textContent = producto.texto2ParrafoDer;
+}
