@@ -1053,8 +1053,9 @@ body {
 }
 
 .perfeccion-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: var(--spacing-4xl);
+    padding-left: 300px;
 }
 
 .perfeccion-subtitle {
@@ -1067,7 +1068,7 @@ body {
 
 .perfeccion-text-content {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .perfeccion-paragraph {
@@ -1076,6 +1077,7 @@ body {
     color: var(--color-tertiary);
     margin: 0;
     font-family: var(--font-family);
+    padding-right: 100px;
 }
 
 .proceso-grid {
