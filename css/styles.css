@@ -417,155 +417,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive Design - Alineación consistente con Grid */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 0 15px;
-    }
-    
-    .content-container {
-        width: 90%;
-        padding: 0 15px;
-    }
-    
-    .header {
-        padding: 12px 0;
-    }
-    
-    .header .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        height: 36px;
-        line-height: 1;
-    }
-    
-    .logo {
-        height: 36px;
-        line-height: 1;
-        grid-column: 1;
-        justify-content: flex-start;
-    }
-    
-    .logo img {
-        height: 26px;
-    }
-    
-    .menu-toggle {
-        width: 22px;
-        height: 36px;
-        gap: 3px;
-        line-height: 1;
-        grid-column: 2;
-        justify-self: center;
-    }
-    
-    .social-icons {
-        gap: 10px;
-        height: 36px;
-        line-height: 1;
-        grid-column: 3;
-        justify-self: end;
-    }
-    
-    .social-icon {
-        width: 28px;
-        height: 28px;
-        line-height: 1;
-    }
-    
-    .social-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .hero {
-        padding-top: 60px;
-    }
-    
-    .hero-content {
-        width: 90%;
-        padding: 0 15px;
-    }
-    
-    .hero-logo {
-        height: 60px;
-        margin-bottom: 15px;
-    }
-    
-    .hero-description {
-        font-size: 14px;
-    }
-    
-    .hero-buttons {
-        justify-content: flex-start;
-    }
-    
-    .btn {
-        width: auto;
-        min-width: 100px;
-    }
-}
 
-@media (max-width: 480px) {
-    .header {
-        padding: 10px 0;
-    }
-    
-    .header .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        height: 32px;
-        line-height: 1;
-    }
-    
-    .logo {
-        height: 32px;
-        line-height: 1;
-        grid-column: 1;
-        justify-content: flex-start;
-    }
-    
-    .logo img {
-        height: 22px;
-    }
-    
-    .menu-toggle {
-        width: 20px;
-        height: 32px;
-        gap: 2px;
-        line-height: 1;
-        grid-column: 2;
-        justify-self: center;
-    }
-    
-    .social-icons {
-        height: 32px;
-        line-height: 1;
-        grid-column: 3;
-        justify-self: end;
-    }
-    
-    .social-icon {
-        width: 24px;
-        height: 24px;
-        line-height: 1;
-    }
-    
-    .social-icon svg {
-        width: 14px;
-        height: 14px;
-    }
-    
-    .hero-logo {
-        height: 50px;
-        margin-bottom: 10px;
-    }
-    
-    .hero-title {
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-}
 
 /* Líneas de separación entre secciones */
 .section-separator {
@@ -639,7 +491,6 @@ body {
 .herencia-section {
     padding: calc(var(--spacing-4xl) * 2) 0;
     background-color: var(--color-background);
-    margin-top: calc(var(--spacing-4xl) * 2);
 }
 
 .herencia-container {
@@ -760,76 +611,7 @@ body {
     /* Usa la clase base .section-subtitle */
 }
 
-/* Responsive Design para Compromiso Section */
-@media (max-width: 768px) {
-    .compromiso-section {
-        padding: 60px 0;
-    }
-    
-    .compromiso-content {
-        padding: 0 20px;
-    }
-    
-    .compromiso-paragraph {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-}
 
-/* Responsive Design para Herencia Section */
-@media (max-width: 768px) {
-    .herencia-section {
-        padding: 60px 0;
-    }
-    
-    .herencia-container {
-        width: 90%;
-        padding: 0 15px;
-    }
-    
-    .herencia-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .herencia-text {
-        padding-right: 0;
-        order: 2;
-    }
-    
-    .herencia-image {
-        order: 1;
-    }
-    
-    .herencia-title {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .herencia-section {
-        padding: 40px 0;
-    }
-    
-    .herencia-container {
-        width: 95%;
-        padding: 0 15px;
-    }
-    
-    .herencia-content {
-        gap: 30px;
-    }
-    
-    .herencia-paragraph {
-        font-size: 13px;
-    }
-    
-    .btn-outline {
-        padding: 12px 25px;
-        font-size: 13px;
-    }
-}
 
 /* El Arte Detrás de Cada Taza Section */
 .arte-section {
@@ -1146,49 +928,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .proceso-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .perfeccion-section {
-        padding: 60px 0;
-    }
-    
-    .perfeccion-title {
-        font-size: 36px;
-    }
-    
-    .perfeccion-paragraph {
-        font-size: 16px;
-    }
-    
-    .proceso-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .proceso-card {
-        text-align: center;
-    }
-    
-    .proceso-number {
-        font-size: 80px;
-    }
-    
-    .proceso-card-title {
-        font-size: 18px;
-    }
-    
-    .proceso-card-description {
-        font-size: 14px;
-    }
-}
 
 .animate-delay-3 {
     transition-delay: 0.6s;
@@ -1472,6 +1211,40 @@ body {
     transition: color 0.3s ease;
 }
 
+/* Botón Anterior */
+.btn-anterior-producto {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.btn-anterior-producto:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-anterior-producto:hover svg {
+    color: white;
+}
+
+.btn-anterior-producto svg {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
 /* Título Principal - Fila 1 (23% desde arriba, 13% desde izquierda) */
 .producto-titulo-principal {
     position: absolute;
@@ -1600,38 +1373,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Responsive Design para Productos */
-@media (max-width: 768px) {
-    .producto-titulo-principal {
-        top: 15%;
-        left: 10%;
-    }
-    
-    .producto-perfil-container {
-        top: 50%;
-        left: 5%;
-        width: 90%;
-    }
-    
-    .producto-parrafos-container {
-        top: 55%;
-        left: 5%;
-        width: 90%;
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .producto-parrafo-izq,
-    .producto-parrafo-der {
-        width: 100%;
-    }
-    
-    .producto-parrafo-izq::before,
-    .producto-parrafo-der::before {
-        display: none;
-    }
-}
-
 /* ==================== SECCIÓN FINAL ==================== */
 .seccion-final {
     padding: 100px 0;
@@ -1728,38 +1469,4 @@ body {
     color: #666;
     font-weight: 300;
     letter-spacing: 0.5px;
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer {
-        padding: 30px 0;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 25px;
-        text-align: center;
-    }
-
-    .footer-phones {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .footer-copyright {
-        text-align: center;
-    }
-
-    .final-titulo {
-        font-size: 1.5rem;
-    }
-
-    .final-texto {
-        font-size: 1rem;
-    }
-
-    .seccion-final {
-        padding: 60px 0;
-    }
 }

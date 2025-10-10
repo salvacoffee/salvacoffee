@@ -166,7 +166,7 @@ const productosData = {
     lavado: {
         nombre: 'CAFÉ LAVADO',
         imagen: 'assets/productoLavado.png',
-        fondo: 'assets/fondoProductoLavado1.jpg',
+        fondo: 'assets/fondoProductoLavado.jpg',
         texto1: 'Proceso Lavado',
         texto2TituloIzq: 'Sabor equilibrado',
         texto2PerfilIzq: 'Perfil: Balanceado y suave\nNotas: cítricos, florales a jazmín y flor de naranja, té negro.',
@@ -320,6 +320,79 @@ function siguienteProducto() {
     }, 10);
     
     // Actualizar textos simultáneamente
+    const tituloCompleto = producto.texto1.split(' ');
+    const mitad = Math.ceil(tituloCompleto.length / 2);
+    const linea1 = tituloCompleto.slice(0, mitad).join(' ');
+    const linea2 = tituloCompleto.slice(mitad).join(' ');
+    
+    const titulo1 = productoSection.querySelector('.titulo-linea1');
+    const titulo2 = productoSection.querySelector('.titulo-linea2');
+    
+    if (titulo1) titulo1.textContent = linea1;
+    if (titulo2) titulo2.textContent = linea2;
+    
+    // Actualizar perfil/notas
+    const perfilIzq = productoSection.querySelector('.producto-perfil-container .parrafo-perfil');
+    if (perfilIzq) {
+        // Aplicar negrita a "Perfil:" y "Notas:"
+        const textoConNegrita = producto.texto2PerfilIzq
+            .replace(/Perfil:/g, '<strong>Perfil:</strong>')
+            .replace(/Notas:/g, '<strong>Notas:</strong>');
+        perfilIzq.innerHTML = textoConNegrita;
+    }
+    
+    // Actualizar párrafo izquierdo
+    const tituloIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-titulo');
+    const textoIzq = productoSection.querySelector('.producto-parrafo-izq .parrafo-texto');
+    
+    if (tituloIzq) tituloIzq.textContent = producto.texto2TituloIzq;
+    if (textoIzq) textoIzq.textContent = producto.texto2DescripcionIzq;
+    
+    // Actualizar párrafo derecho
+    const tituloDer = productoSection.querySelector('.producto-parrafo-der .parrafo-titulo');
+    const textoDer = productoSection.querySelector('.producto-parrafo-der .parrafo-texto');
+    
+    if (tituloDer) tituloDer.textContent = producto.texto2TituloDer;
+    if (textoDer) textoDer.textContent = producto.texto2ParrafoDer;
+    
+    // Actualizar color del rectángulo
+    const rectangulo = productoSection.querySelector('.producto-rectangulo-color');
+    if (rectangulo && producto.color) {
+        rectangulo.style.backgroundColor = producto.color;
+    }
+}
+
+// Función para ir al producto anterior
+function anteriorProducto() {
+    if (!productoActual) return;
+    
+    const fondoCapa1 = document.querySelector('.fondo-capa-1');
+    const fondoCapa2 = document.querySelector('.fondo-capa-2');
+    const productoSection = document.querySelector('.productos-section');
+    
+    if (!productoSection || !fondoCapa1 || !fondoCapa2) return;
+    
+    // Determinar cuál capa está visible
+    const capa1Visible = fondoCapa1.style.opacity !== '0';
+    const capaVisible = capa1Visible ? fondoCapa1 : fondoCapa2;
+    const capaOculta = capa1Visible ? fondoCapa2 : fondoCapa1;
+    
+    // Calcular producto anterior
+    const currentIndex = ordenProductos.indexOf(productoActual);
+    const prevIndex = (currentIndex - 1 + ordenProductos.length) % ordenProductos.length;
+    const prevProducto = ordenProductos[prevIndex];
+    productoActual = prevProducto;
+    
+    const producto = productosData[prevProducto];
+    
+    // Configurar la capa oculta con el nuevo fondo
+    capaOculta.style.backgroundImage = `url('${producto.fondo}')`;
+    
+    // Iniciar crossfade
+    capaVisible.style.opacity = '0';
+    capaOculta.style.opacity = '1';
+    
+    // Actualizar título principal (dividir en dos líneas)
     const tituloCompleto = producto.texto1.split(' ');
     const mitad = Math.ceil(tituloCompleto.length / 2);
     const linea1 = tituloCompleto.slice(0, mitad).join(' ');
